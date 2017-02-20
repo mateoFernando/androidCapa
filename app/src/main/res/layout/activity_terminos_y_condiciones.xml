@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.activity.TerminosYCondiciones"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+
+        android:layout_below="@+id/toolbar"
+        android:id="@+id/scroll"
+
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="16dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/terminos_condiciones"
+
+                    android:textSize="@dimen/terminos_condiciones_title"
+                    android:layout_marginBottom="@dimen/tittle_terminos_margin"
+                    />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_text_terminos"
+
+                    android:textSize="@dimen/text_terminos_size"
+                    android:text="@string/text_terminos_condiciones"
+                    android:id="@+id/textView" />
+
+
+            </LinearLayout>
+            <android.support.v7.widget.AppCompatCheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_terminos_condiciones_checkbox"
+                android:id="@+id/checkBox"
+
+                android:layout_margin="16dp"
+
+
+
+                />
+
+        </LinearLayout>
+
+    </ScrollView>
+    <Button
+        android:id="@+id/email_aceptar_in_button"
+        style="?android:textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="@string/action_aceptar"
+        android:textAllCaps="false"
+        android:layout_alignBottom="@+id/scroll"
+        android:textColor="@android:color/white"
+
+        android:background="@color/colorAccent" />
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/toolbar"
+
+        android:textSize="@dimen/texto_boton_naranja"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <ImageButton
+            android:layout_width = "?attr/actionBarSize"
+            android:layout_height = "?attr/actionBarSize"
+            android:src="@drawable/ic_arrow_back"
+            android:background = "?attr/selectableItemBackgroundBorderless"
+            android:id="@+id/boton_toolbar_cerrar" />
+
+    </android.support.v7.widget.Toolbar>
+
+</RelativeLayout>

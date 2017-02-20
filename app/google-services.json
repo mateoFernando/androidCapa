@@ -1,0 +1,104 @@
+{
+  "project_info": {
+    "project_number": "471116829754",
+    "firebase_url": "https://endless-splice-491.firebaseio.com",
+    "project_id": "endless-splice-491",
+    "storage_bucket": "endless-splice-491.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:471116829754:android:a964ab4123c6d04a",
+        "android_client_info": {
+          "package_name": "gob.osinergmin.interrupciones"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "471116829754-u5atjpgtvut7juvm3js66vt519f13dsb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyB4v8OY7qswD-DCnJgBLCwwTKY6tA5LU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:471116829754:android:caf0c11655bb3f69",
+        "android_client_info": {
+          "package_name": "gob.osinergmin.appinstitucional"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "471116829754-u5atjpgtvut7juvm3js66vt519f13dsb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyB4v8OY7qswD-DCnJgBLCwwTKY6tA5LU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:471116829754:android:294c63035e33f912",
+        "android_client_info": {
+          "package_name": "gmd.plantilla.androidapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "471116829754-u5atjpgtvut7juvm3js66vt519f13dsb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyB4v8OY7qswD-DCnJgBLCwwTKY6tA5LU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

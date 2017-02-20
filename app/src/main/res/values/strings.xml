@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">AndroidApp</string>
+
+    <!-- GCM ID Sender -->
+    <string name="gcm_sender_id">471116829754</string>
+
+    <!-- Google Maps Key -->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">
+        AIzaSyAyB4v8OY7qswD-DCnJgBLCwwTKY6tA5LU
+    </string>
+    <string name="mensaje_progress_dialog">Cargando</string>
+    <string name="slide_txt_boton_omitir">Omitir</string>
+    <string name="siguiente">Siguiente</string>
+    <string name="slide_finalizar">Finalizar</string>
+    <string name="t1">UNO</string>
+    <string name="d1">Uno</string>
+    <string name="iniciar_sesion">Iniciar Sesión</string>
+
+    <string name="texto_olvido_contrasena">¿Olvidaste tu Contraseña?</string>
+    <string name="title_activity_mapa_prueba">Mapa</string>
+    <string name="action_aceptar">Aceptar</string>
+
+
+    <string name="terminos_condiciones">Términos y condiciones</string>
+    <string name="text_terminos_condiciones">En Graña y Montero tenemos muy claro que hemos superado los 80 años gracias al respeto de nuestros 7 compromisos que son: confiabilidad, más allá del Negocio, calidad, cumplimiento, seriedad, eficiencia y propósito trascendente.
+\n \n
+Por ello, se ha creado este canal de comunicación con la finalidad de impulsar y fortalecer nuestro Estilo Graña y Montero a través de la participación de nuestros colaboradores.  Estamos seguros que esta T será utilizada de una forma adecuada, respetando y compartiendo lo mejor de nuestros equipos.
+    </string>
+    <string name="text_terminos_condiciones_checkbox">Aceptar Terminos y condiciones</string>
+</resources>

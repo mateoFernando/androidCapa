@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:background="@color/fondo_slide"
+
+    >
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="0dp"
+        android:layout_weight="0.20"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/title_slide"
+            android:textStyle="bold"
+            android:textSize="@dimen/sp_text_slides"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="0.52">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/img_slide"
+            android:layout_gravity="center_horizontal"
+            android:paddingBottom="10dp" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.28">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_gravity="center_horizontal|center_vertical"
+
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:id="@+id/descripcion_slide"
+            android:textSize="@dimen/sp_text_slides"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:gravity="center"
+            />
+
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>

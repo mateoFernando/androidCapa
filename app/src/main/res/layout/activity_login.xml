@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+
+
+    tools:context=".view.activity.LoginActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:orientation="vertical"
+
+
+
+
+        android:gravity="center_vertical">
+
+
+        <!--Boton de Ingreso -->
+
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="32dp"
+            android:paddingRight="32dp"
+            android:gravity="center">
+
+            <!--Titutlo -->
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+
+                />
+
+            <!-- Usuario -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Usuario"
+                android:textColor="@color/color_texto_login"/>
+
+            <EditText
+                android:id="@+id/input_iniciar_sesion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:textColor="@color/color_caja_texto_login"
+                android:singleLine="true"
+                android:inputType="text"
+                android:imeOptions="actionNext"
+                 />
+            <!--android:text="GMSWF\\RRUIZC"-->
+            <!-- Cambiar Contraseña-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Contraseña"
+                android:textColor="@color/color_texto_login"/>
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:passwordToggleEnabled="true"
+
+                android:id="@+id/layout_contrasenia">
+                <EditText
+                    android:id="@+id/input_contrasenia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:textColor="@color/color_caja_texto_login"
+                    android:inputType="textPassword"
+                    android:imeOptions="actionDone"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="match_parent">
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/terminos_y_condiciones"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/terminos_condiciones"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:id="@+id/txt_check_box"
+                    android:text="@string/terminos_condiciones"/>
+            </LinearLayout>
+
+
+            <!--Olvide contraseña-->
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txt_recuperar_clave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@color/color_texto_login"
+            android:maxLines="1"
+            android:padding="12dp"
+            android:paddingTop="18dp"
+
+            android:text="@string/texto_olvido_contrasena" />
+
+
+    </LinearLayout>
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btn_ingreso"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="@string/iniciar_sesion"
+        android:textColor="@color/color_text_boton_inciar"
+        android:padding="16dp"
+        android:textSize="@dimen/texto_boton_naranja"
+        android:textAllCaps="false"
+        android:background="@color/color_boton_iniciar_sesion"
+        android:theme="@style/AppTheme.Button.iniciar">
+
+    </android.support.v7.widget.AppCompatButton>
+</LinearLayout>
+

@@ -1,0 +1,24 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!--sliding-->
+    <dimen name="sliding_tamanio_barra_superior">56dp</dimen>
+    <dimen name="sliding_tamaño_texto_boton_omitir">16sp</dimen>
+    <dimen name="sliding_tamaño_texto_boton_siguiente">18sp</dimen>
+    <dimen name="sp_text_slides">15sp</dimen>
+    <dimen name="app_bar_height">240dp</dimen>
+    <dimen name="texto_boton_naranja">14sp</dimen>
+
+    <!--Terminos y condicones-->
+    <dimen name="text_margin">16dp</dimen>
+    <dimen name="terminos_condiciones">16dp</dimen>
+    <dimen name="margin_text_terminos">8dp</dimen>
+    <dimen name="terminos_condiciones_title">20sp</dimen>
+    <dimen name="tittle_terminos_margin">16dp</dimen>
+    <dimen name="checkbox_terminos">16dp</dimen>
+    <dimen name="radius_button">5dp</dimen>
+
+    <dimen name="text_terminos_size">14sp</dimen>
+</resources>
