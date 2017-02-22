@@ -8,7 +8,6 @@ import gmd.plantilla.androidapp.domain.ro.response.ParametricResponse;
 import gmd.plantilla.androidapp.service.business.ParametricService;
 import gmd.plantilla.androidapp.service.dao.ParametricDAO;
 import gmd.plantilla.androidapp.service.dao.impl.ParametricDAOImpl;
-import gmd.plantilla.androidapp.util.RedirectManager;
 import pe.com.gmd.ao.innova.androidLib.LogUtil;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -62,7 +61,7 @@ public class ParametricServiceImpl implements ParametricService{
                     parametricDAO.insertAll(parametricResponse.getParametricList());
                     LogUtil.d("parametricResponse", "parametricResponse" + response.body().toString());
 
-                    RedirectManager.returnToCallback(ctx, parametricResponse, callback);
+                   // RedirectManager.returnToCallback(ctx, parametricResponse, callback);
                 }
                 else{
 
@@ -74,7 +73,7 @@ public class ParametricServiceImpl implements ParametricService{
                 ParametricResponse parametricResponse = new ParametricResponse();
                 parametricResponse.setResultCode(0);
                 parametricResponse.setMessage(t.toString());
-                RedirectManager.returnToCallback(ctx, parametricResponse, callback);
+              //  RedirectManager.returnToCallback(ctx, parametricResponse, callback);
             }
         });
     }

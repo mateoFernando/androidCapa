@@ -93,7 +93,7 @@ public class LoginActivity extends AppCompatActivity {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void LoginCorrecto(LoginResponse response) {
-        Intent i = new Intent(LoginActivity.this , MainActivity.class);
+        Intent i = new Intent(LoginActivity.this , SlideActivity.class);
         startActivity(i);
         finish();
 
