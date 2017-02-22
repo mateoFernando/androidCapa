@@ -1,4 +1,4 @@
-package gmd.plantilla.androidapp.domain.dto;
+package gmd.plantilla.androidapp.domain.DTO;
 
 /**
  * Created by innovagmd on 27/01/17.

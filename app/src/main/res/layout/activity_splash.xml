@@ -8,11 +8,6 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            />
 
         <ImageView
             android:layout_width="110dp"
@@ -20,6 +15,7 @@
             android:id="@+id/imageViewLogo"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:src="@mipmap/warner_bross"
             />
 
         <TextView

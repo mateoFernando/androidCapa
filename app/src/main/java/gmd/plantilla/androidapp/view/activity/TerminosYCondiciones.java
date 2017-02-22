@@ -15,7 +15,7 @@ import org.greenrobot.eventbus.EventBus;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import gmd.plantilla.androidapp.R;
-import gmd.plantilla.androidapp.domain.dto.CTermCondDTO;
+import gmd.plantilla.androidapp.domain.DTO.CTermCondDTO;
 
 
 public class TerminosYCondiciones extends AppCompatActivity {

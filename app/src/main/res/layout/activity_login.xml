@@ -15,11 +15,7 @@
         android:layout_weight="4"
         android:orientation="vertical"
 
-
-
-
         android:gravity="center_vertical">
-
 
         <!--Boton de Ingreso -->
 
@@ -34,10 +30,10 @@
 
             <!--Titutlo -->
             <ImageView
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
                 android:layout_marginBottom="32dp"
-
+                android:src="@mipmap/dreamworks"
                 />
 
             <!-- Usuario -->
@@ -79,28 +75,6 @@
                     android:inputType="textPassword"
                     android:imeOptions="actionDone"/>
             </android.support.design.widget.TextInputLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:orientation="horizontal"
-                android:layout_height="match_parent">
-                <android.support.v7.widget.AppCompatCheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/terminos_y_condiciones"
-
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:textColor="@color/terminos_condiciones"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:id="@+id/txt_check_box"
-                    android:text="@string/terminos_condiciones"/>
-            </LinearLayout>
-
 
             <!--Olvide contraseña-->
 

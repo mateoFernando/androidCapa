@@ -1,6 +1,7 @@
 package gmd.plantilla.androidapp.view.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -47,20 +48,6 @@ public class SplashActivity extends BaseActivity {
 
         ctx = this;
         timer = new Timer("SplashTimer",true);
-
-        ///
-        ImageView imgView=(ImageView) findViewById(R.id.imageViewLogo);
-
-        if(Constants.VALUES.IMG_GIF!=R.drawable.ic_arrow_back){
-             Ion.with(imgView)
-                .animateGif(AnimateGifMode.ANIMATE)
-                .load("android.resource://" + getPackageName() + "/" + Constants.VALUES.IMG_GIF)
-                .withBitmapInfo();
-        }else{
-            imgView.setVisibility(View.GONE);
-        }
-
-        ///
 
         /** En caso se configure data maestra y deba descargarse al inicio **/
         splash_task_parametric = new TimerTask() {
@@ -153,9 +140,8 @@ public class SplashActivity extends BaseActivity {
             goToLogin();
     }
     private void goToLogin(){
-        callActivity(SlideActivity.class.getName());
-      //  Intent i = new Intent(SplashActivity.this , LoginActivity.class);
-       // startActivity(i);
+        Intent i = new Intent(SplashActivity.this , LoginActivity.class);
+        startActivity(i);
         finish();
     }
     private void goToMain(){

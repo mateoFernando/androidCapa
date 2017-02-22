@@ -21,7 +21,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import gmd.plantilla.androidapp.R;
-import gmd.plantilla.androidapp.domain.dto.CTermCondDTO;
+import gmd.plantilla.androidapp.domain.DTO.CTermCondDTO;
 import gmd.plantilla.androidapp.domain.ro.response.LoginResponse;
 import gmd.plantilla.androidapp.service.business.UserService;
 import gmd.plantilla.androidapp.service.business.impl.UserServiceImpl;
@@ -34,9 +34,6 @@ public class LoginActivity extends BaseActivity {
     EditText inputContrasenia;
     @Bind(R.id.layout_contrasenia)
     TextInputLayout layoutContrasenia;
-    @Bind(R.id.terminos_y_condiciones)
-    AppCompatCheckBox terminosYCondiciones;
-    @Bind(R.id.txt_check_box)
     TextView txtCheckBox;
     @Bind(R.id.txt_recuperar_clave)
     TextView txtRecuperarClave;
@@ -54,20 +51,13 @@ public class LoginActivity extends BaseActivity {
 
     }
 
-    @OnClick({R.id.input_iniciar_sesion, R.id.input_contrasenia, R.id.terminos_y_condiciones, R.id.txt_check_box, R.id.txt_recuperar_clave, R.id.btn_ingreso})
+    @OnClick({R.id.input_iniciar_sesion, R.id.input_contrasenia, R.id.txt_recuperar_clave, R.id.btn_ingreso})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.input_iniciar_sesion:
 
-
                 break;
             case R.id.input_contrasenia:
-                break;
-            case R.id.terminos_y_condiciones:
-
-                break;
-            case R.id.txt_check_box:
-                callActivity(TerminosYCondiciones.class.getName());
                 break;
             case R.id.txt_recuperar_clave:
                 //event textRecuperar clave
@@ -128,10 +118,5 @@ public class LoginActivity extends BaseActivity {
         return true;
     }
 
-    @Subscribe(sticky = true, threadMode = ThreadMode.BACKGROUND)
-    public void ChecKTerminosCondiciones(CTermCondDTO response) {
-      //  callActivity(MainActivity.class.getName());
-        terminosYCondiciones.setChecked(response.getChecked());
-    }
 
 }
