@@ -1,10 +1,11 @@
 package gmd.plantilla.androidapp.view.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
-import android.support.v7.widget.AppCompatCheckBox;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
@@ -21,12 +22,11 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import gmd.plantilla.androidapp.R;
-import gmd.plantilla.androidapp.domain.DTO.CTermCondDTO;
 import gmd.plantilla.androidapp.domain.ro.response.LoginResponse;
 import gmd.plantilla.androidapp.service.business.UserService;
 import gmd.plantilla.androidapp.service.business.impl.UserServiceImpl;
 
-public class LoginActivity extends BaseActivity {
+public class LoginActivity extends AppCompatActivity {
 
     @Bind(R.id.input_iniciar_sesion)
     EditText inputIniciarSesion;
@@ -39,8 +39,8 @@ public class LoginActivity extends BaseActivity {
     TextView txtRecuperarClave;
     @Bind(R.id.btn_ingreso)
     AppCompatButton btnIngreso;
-
     Context context;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,12 +55,10 @@ public class LoginActivity extends BaseActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.input_iniciar_sesion:
-
                 break;
             case R.id.input_contrasenia:
                 break;
             case R.id.txt_recuperar_clave:
-                //event textRecuperar clave
                 break;
             case R.id.btn_ingreso:
 
@@ -95,11 +93,13 @@ public class LoginActivity extends BaseActivity {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void LoginCorrecto(LoginResponse response) {
-          callActivity(MainActivity.class.getName());
+        Intent i = new Intent(LoginActivity.this , MainActivity.class);
+        startActivity(i);
+        finish();
+
     }
 
     private boolean validar() {
-        //validar
         if(inputIniciarSesion.getText().length()<=0){
             YoYo.with(Techniques.Tada)
                     .duration(700)

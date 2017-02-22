@@ -1,5 +1,6 @@
 package gmd.plantilla.androidapp.view.activity;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -27,13 +28,13 @@ import gmd.plantilla.androidapp.service.business.impl.UserServiceImpl;
 import gmd.plantilla.androidapp.util.Constants;
 import pe.com.gmd.ao.innova.androidLib.LogUtil;
 
-public class SplashActivity extends BaseActivity {
+public class SplashActivity extends AppCompatActivity {
 
     private TimerTask splash_task_parametric;
     private TimerTask splash_task;
     private Timer timer;
     private Context ctx;
-  //  private ProgressDialog dialog;
+    private ProgressDialog dialog;
 
     private FcmTokenService deviceService = new FcmTokenServiceImpl();
     private UserService userService = new UserServiceImpl();
@@ -44,9 +45,7 @@ public class SplashActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-       // getSupportActionBar().hide();
 
-        ctx = this;
         timer = new Timer("SplashTimer",true);
 
         /** En caso se configure data maestra y deba descargarse al inicio **/
@@ -56,7 +55,9 @@ public class SplashActivity extends BaseActivity {
                 if(parametricService.isEmpty()){ // first time
                     ((AppCompatActivity)ctx).runOnUiThread(new Runnable() {
                         public void run() {
-                           showProgressDialog("Estamos configurando la aplicación");
+                            dialog = ProgressDialog.show(ctx, getResources().getString(R.string.app_name),
+                                    "Estamos configurando la aplicación", true);
+
                         }
                     });
                     getParametricData();
@@ -117,7 +118,8 @@ public class SplashActivity extends BaseActivity {
     /** Callback Methods **/
     public void parametricCallback(ParametricResponse parametricResponse){
 
-        dismissProgressDialog();
+        if(dialog!=null)
+            dialog.dismiss();
 
         if(parametricResponse.getResultCode() == Constants.SUCCESS_REQUEST){
             goToNextActivity();
@@ -145,7 +147,9 @@ public class SplashActivity extends BaseActivity {
         finish();
     }
     private void goToMain(){
-        callActivity(MainActivity.class.getName());
+        Intent i = new Intent(SplashActivity.this , MainActivity.class);
+        startActivity(i);
+        finish();
     }
     /** Redirection Methods **/
 

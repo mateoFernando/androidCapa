@@ -17,7 +17,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import gmd.plantilla.androidapp.R;
-import gmd.plantilla.androidapp.view.activity.PruebaTestActivity;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;

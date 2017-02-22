@@ -94,15 +94,6 @@
         <activity
             android:name=".view.activity.MapaPrueba"
             android:label="@string/title_activity_mapa_prueba" />
-        <activity
-            android:name=".view.activity.TerminosYCondiciones"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeTerminos" />
-        <activity android:name=".view.activity.PruebaTestActivity"
-
-            >
-
-        </activity>
     </application>
 
 </manifest>

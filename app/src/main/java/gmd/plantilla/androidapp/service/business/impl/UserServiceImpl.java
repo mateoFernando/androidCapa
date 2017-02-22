@@ -37,7 +37,6 @@ public class UserServiceImpl implements UserService {
                     LogUtil.d("LoginResponse", "LoginResponse" + response.body().toString());
 
                     EventBus.getDefault().post(loginResponse);
-                   // RedirectManager.returnToCallback(ctx, loginResponse, callback);
                 }
                 else{
 

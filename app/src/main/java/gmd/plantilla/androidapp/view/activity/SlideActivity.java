@@ -1,8 +1,10 @@
 package gmd.plantilla.androidapp.view.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -27,7 +29,7 @@ import static gmd.plantilla.androidapp.util.Constants.GETSLIDE;
  * Created by innovagmd on 30/11/16.
  */
 
-public class SlideActivity extends BaseActivity implements ViewPager.OnPageChangeListener {
+public class SlideActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener {
 
 
     @Bind(R.id.viewPager)
@@ -113,7 +115,8 @@ public class SlideActivity extends BaseActivity implements ViewPager.OnPageChang
     }
 
     private void goToHistoriasActivity() {
-        callActivity(LoginActivity.class.getName());
+        Intent i = new Intent(SlideActivity.this , LoginActivity.class);
+        startActivity(i);
         finish();
     }
 

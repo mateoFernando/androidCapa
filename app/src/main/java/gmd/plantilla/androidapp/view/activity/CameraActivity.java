@@ -11,7 +11,7 @@ import gmd.plantilla.androidapp.R;
 import gmd.plantilla.androidapp.view.fragment.CameraFragment;
 
 @SuppressWarnings("deprecation")
-public class CameraActivity extends BaseActivity {
+public class CameraActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
