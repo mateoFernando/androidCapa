@@ -30,17 +30,11 @@ public class AdapterSlide extends PagerAdapter {
 
     @Override
     public Object instantiateItem(ViewGroup collection, int position) {
-       // Slides modelObject = Slides.values()[position];
         Slide slideActual = slides.get(position);
         LayoutInflater inflater = LayoutInflater.from(mContext);
         ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.slide, collection, false);
 
-
-        TextView textoTitulo= (TextView) layout.findViewById(R.id.title_slide);
-        TextView textoDesc= (TextView) layout.findViewById(R.id.descripcion_slide);
         ImageView imgView= (ImageView) layout.findViewById(R.id.img_slide);
-        textoTitulo.setText(slideActual.getTitulo());
-        textoDesc.setText(slideActual.getDescripcion());
         imgView.setImageResource(slideActual.getImagen());
 
         collection.addView(layout);
@@ -62,9 +56,4 @@ public class AdapterSlide extends PagerAdapter {
         return view == object;
     }
 
-    @Override
-    public CharSequence getPageTitle(int position) {
-       // Slides customPagerEnum = slides.get(position).getTitulo();
-        return mContext.getString(slides.get(position).getTitulo());
-    }
 }

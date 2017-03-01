@@ -29,9 +29,10 @@ public class Constants {
         /**
          * Slide(@titulo,@descripcion,@ImagenPagedrawable)
          */
-        items.add(new Slide(R.string.t1,R.string.d1,R.drawable.ic_arrow_back));
-        items.add(new Slide(R.string.t1,R.string.d1,R.drawable.ic_arrow_back));
-        items.add(new Slide(R.string.t1,R.string.d1,R.drawable.ic_arrow_back));
+        items.add(new Slide(R.mipmap.group));
+        items.add(new Slide(R.mipmap.group_3));
+        items.add(new Slide(R.mipmap.group9));
+        items.add(new Slide(R.mipmap.group_5));
 
         return items;
     }

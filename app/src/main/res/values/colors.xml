@@ -3,8 +3,8 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="fondo_slide">#ffffff</color>
-    <color name="button_slide">#000000</color>
+    <color name="fondo_slide">#000000</color>
+    <color name="button_slide">#7300ff</color>
     <color name="color_texto_login">#000000</color>
     <color name="color_caja_texto_login">#142112</color>
     <color name="color_boton_iniciar_sesion">#545454</color>

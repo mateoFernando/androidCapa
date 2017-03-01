@@ -12,6 +12,7 @@ import java.util.TimerTask;
 
 import gmd.plantilla.androidapp.R;
 import gmd.plantilla.androidapp.domain.model.FcmToken;
+import gmd.plantilla.androidapp.domain.model.Slide;
 import gmd.plantilla.androidapp.domain.model.User;
 import gmd.plantilla.androidapp.domain.ro.response.ParametricResponse;
 import gmd.plantilla.androidapp.service.business.FcmTokenService;
@@ -132,17 +133,19 @@ public class SplashActivity extends AppCompatActivity {
     /** Redirection Methods **/
     private void goToNextActivity(){
         if(userService.getCurrentUser() != null)
-            goToMain();
+            goToSlide();
         else
-            goToLogin();
+            goToSlide();
+            //goToLogin();
+
     }
     private void goToLogin(){
         Intent i = new Intent(SplashActivity.this , LoginActivity.class);
         startActivity(i);
         finish();
     }
-    private void goToMain(){
-        Intent i = new Intent(SplashActivity.this , MainActivity.class);
+    private void goToSlide(){
+        Intent i = new Intent(SplashActivity.this , SlideActivity.class);
         startActivity(i);
         finish();
     }

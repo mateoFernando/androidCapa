@@ -3,36 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/group_2"
     tools:context="gmd.plantilla.androidapp.view.activity.SplashActivity">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ImageView
-            android:layout_width="110dp"
-            android:layout_height="110dp"
-            android:id="@+id/imageViewLogo"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:src="@mipmap/warner_bross"
-            />
-
-        <TextView
-            android:id="@+id/txt_mensaje"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Problemas de conexion"
-            android:gravity="center_horizontal"
-            android:layout_marginBottom="5dp"
-            android:textColor="@color/colorAccent"
-            android:textSize="18sp"
-            android:visibility="invisible"
-            android:layout_alignParentBottom="true"
-         />
-
-
-
-    </RelativeLayout>
 
 </RelativeLayout>
