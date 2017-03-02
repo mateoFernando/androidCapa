@@ -1,11 +1,14 @@
 package gmd.plantilla.androidapp.view.activity;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
@@ -32,14 +35,14 @@ public class LoginActivity extends AppCompatActivity {
     EditText inputIniciarSesion;
     @Bind(R.id.input_contrasenia)
     EditText inputContrasenia;
-    @Bind(R.id.layout_contrasenia)
-    TextInputLayout layoutContrasenia;
-    TextView txtCheckBox;
+
     @Bind(R.id.txt_recuperar_clave)
     TextView txtRecuperarClave;
     @Bind(R.id.btn_ingreso)
     AppCompatButton btnIngreso;
     Context context;
+
+    private ProgressDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +51,9 @@ public class LoginActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
+        context = this;
+        inputContrasenia.setTypeface(Typeface.DEFAULT);
+        inputContrasenia.setTransformationMethod(new PasswordTransformationMethod());
 
     }
 
@@ -63,6 +69,8 @@ public class LoginActivity extends AppCompatActivity {
             case R.id.btn_ingreso:
 
                 if(validar()){
+                    dialog = ProgressDialog.show(context, getResources().getString(R.string.app_name),
+                            "Iniciando sesión", true);
                     UserService loginService=new UserServiceImpl();
                     String usuario="beto@gmd.com.pe";
                     String contrasenna="123456";
@@ -93,7 +101,11 @@ public class LoginActivity extends AppCompatActivity {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void LoginCorrecto(LoginResponse response) {
-        Intent i = new Intent(LoginActivity.this , SlideActivity.class);
+
+        if(dialog!=null)
+            dialog.dismiss();
+
+        Intent i = new Intent(LoginActivity.this , MainActivity.class);
         startActivity(i);
         finish();
 

@@ -12,7 +12,6 @@ import java.util.TimerTask;
 
 import gmd.plantilla.androidapp.R;
 import gmd.plantilla.androidapp.domain.model.FcmToken;
-import gmd.plantilla.androidapp.domain.model.Slide;
 import gmd.plantilla.androidapp.domain.model.User;
 import gmd.plantilla.androidapp.domain.ro.response.ParametricResponse;
 import gmd.plantilla.androidapp.service.business.FcmTokenService;
@@ -21,6 +20,7 @@ import gmd.plantilla.androidapp.service.business.UserService;
 import gmd.plantilla.androidapp.service.business.impl.FcmTokenServiceImpl;
 import gmd.plantilla.androidapp.service.business.impl.ParametricServiceImpl;
 import gmd.plantilla.androidapp.service.business.impl.UserServiceImpl;
+import gmd.plantilla.androidapp.util.AppPreferences;
 import gmd.plantilla.androidapp.util.Constants;
 import pe.com.gmd.ao.innova.androidLib.LogUtil;
 
@@ -43,7 +43,7 @@ public class SplashActivity extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         timer = new Timer("SplashTimer",true);
-
+        ctx = this;
         /** En caso se configure data maestra y deba descargarse al inicio **/
         splash_task_parametric = new TimerTask() {
             @Override
@@ -133,10 +133,13 @@ public class SplashActivity extends AppCompatActivity {
     /** Redirection Methods **/
     private void goToNextActivity(){
         if(userService.getCurrentUser() != null)
-            goToSlide();
-        else
-            goToSlide();
-            //goToLogin();
+            goToMain();
+        else{
+            if(AppPreferences.getInstance(ctx).isOnBordingVisto())
+                goToLogin();
+            else
+                goToSlide();
+        }
 
     }
     private void goToLogin(){
@@ -149,6 +152,13 @@ public class SplashActivity extends AppCompatActivity {
         startActivity(i);
         finish();
     }
+
+    private void goToMain(){
+        Intent i = new Intent(SplashActivity.this , MainActivity.class);
+        startActivity(i);
+        finish();
+    }
+
     /** Redirection Methods **/
 
 }
