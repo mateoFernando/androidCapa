@@ -95,7 +95,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".view.activity.MapaPrueba"
+            android:name=".view.activity.MapActivity"
             android:label="@string/title_activity_mapa_prueba" />
     </application>
 
