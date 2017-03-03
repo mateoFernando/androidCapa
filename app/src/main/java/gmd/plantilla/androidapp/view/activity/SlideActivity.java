@@ -8,10 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.TextView;
-
-import com.viewpagerindicator.CirclePageIndicator;
 
 import java.util.List;
 
@@ -21,7 +17,7 @@ import butterknife.OnClick;
 import gmd.plantilla.androidapp.R;
 import gmd.plantilla.androidapp.domain.model.Slide;
 import gmd.plantilla.androidapp.util.AppPreferences;
-import gmd.plantilla.androidapp.view.adapter.AdapterSlide;
+import gmd.plantilla.androidapp.view.adapter.SlideAdapter;
 
 import static gmd.plantilla.androidapp.util.Constants.GETSLIDE;
 
@@ -48,7 +44,7 @@ public class SlideActivity extends AppCompatActivity implements ViewPager.OnPage
         ButterKnife.bind(this);
         context = this;
         items= GETSLIDE();
-        viewPager.setAdapter(new AdapterSlide(this,items));
+        viewPager.setAdapter(new SlideAdapter(this,items));
         viewPager.addOnPageChangeListener(this);
         saveFlagOnboarding();
 
