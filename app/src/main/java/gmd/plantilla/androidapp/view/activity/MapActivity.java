@@ -69,7 +69,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-
+        mMap.getUiSettings().setMyLocationButtonEnabled(false);
         // Add a marker in Sydney and move the camera
         //LatLng sydney = new LatLng(-34, 151);
         //mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
@@ -109,7 +109,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
         if(PermissionChecker.isGpsEnable(this)){
             location = LocationServices.FusedLocationApi.getLastLocation(
                     mGoogleApiClient);
-
+            mMap.setMyLocationEnabled(true);
             if(location != null){
                 goToMyPosition();
             }
