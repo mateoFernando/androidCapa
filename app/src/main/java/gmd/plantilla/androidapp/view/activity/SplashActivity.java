@@ -143,7 +143,7 @@ public class SplashActivity extends AppCompatActivity {
 
     }
     private void goToLogin(){
-        Intent i = new Intent(SplashActivity.this , LoginActivity.class);
+        Intent i = new Intent(SplashActivity.this , MapActivity.class);
         startActivity(i);
         finish();
     }
