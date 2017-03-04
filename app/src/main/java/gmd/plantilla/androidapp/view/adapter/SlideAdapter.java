@@ -19,11 +19,11 @@ import gmd.plantilla.androidapp.domain.model.Slide;
  * Created by innovagmd on 30/11/16.
  */
 
-public class AdapterSlide extends PagerAdapter {
+public class SlideAdapter extends PagerAdapter {
 
     private Context mContext;
     private List<Slide> slides;
-    public AdapterSlide(Context context,List<Slide> slides) {
+    public SlideAdapter(Context context, List<Slide> slides) {
         mContext = context;
         this.slides=slides;
     }

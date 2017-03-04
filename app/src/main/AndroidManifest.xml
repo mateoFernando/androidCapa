@@ -69,7 +69,9 @@
 
 
         <!-- Activities. -->
-        <activity android:name=".view.activity.MainActivity" >
+        <activity android:name=".view.activity.MainActivity"
+            android:screenOrientation="portrait"
+            >
 
             </activity>
         <activity
@@ -90,9 +92,11 @@
             />
         <activity
             android:name=".view.activity.SlideActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".view.activity.MapaPrueba"
+            android:name=".view.activity.MapActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_mapa_prueba" />
 
         <activity android:name=".view.activity.PrincipalActivity" >

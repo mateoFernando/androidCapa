@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AndroidApp</string>
+    <string name="app_name">Disgo</string>
 
     <!-- GCM ID Sender -->
     <string name="gcm_sender_id">471116829754</string>
@@ -16,7 +16,7 @@
     <string name="d1">Uno</string>
     <string name="iniciar_sesion">Iniciar Sesión</string>
 
-    <string name="texto_olvido_contrasena">¿Olvidaste tu Contraseña?</string>
+    <string name="texto_olvido_contrasena">¿No tienes una cuenta? Regístrate</string>
     <string name="title_activity_mapa_prueba">Mapa</string>
     <string name="action_aceptar">Aceptar</string>
 
