@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
  * Created by glarab on 03/06/2016.
  */
 
-public class BaseResponse {
+public class BaseResponse_Backendless {
 
 
     private static final int SUCCESS=0;
