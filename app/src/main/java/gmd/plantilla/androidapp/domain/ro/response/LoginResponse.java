@@ -8,68 +8,32 @@ import gmd.plantilla.androidapp.domain.model.User;
 
 public class LoginResponse extends BaseResponse {
 
-    private User Data;
+    private String CodigoUsuarioSesion;
+    private String Password;
 
-    public User getData() {
-        return Data;
+    public LoginResponse(String codigoUsuarioSesion, String password) {
+        CodigoUsuarioSesion = codigoUsuarioSesion;
+        Password = password;
     }
 
-    public void setData(User data) {
-        Data = data;
+    public LoginResponse(){
+
     }
 
-
-
-    //@SerializedName("name")
-    /*private String name;
-
-    @SerializedName("___class")
-    private String type;
-
-    @SerializedName("user-token")
-    private String token;
-
-    private String email;
-
-    private String objectId;
-
-    public String getName() {
-        return name;
+    public String getPassword() {
+        return Password;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPassword(String password) {
+        Password = password;
     }
 
-    public String getType() {
-        return type;
+    public String getCodigoUsuarioSesion() {
+        return CodigoUsuarioSesion;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setCodigoUsuarioSesion(String codigoUsuarioSesion) {
+        CodigoUsuarioSesion = codigoUsuarioSesion;
     }
 
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getObjectId() {
-        return objectId;
-    }
-
-    public void setObjectId(String objectId) {
-        this.objectId = objectId;
-    }*/
 }

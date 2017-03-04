@@ -28,7 +28,7 @@ public class FcmIDListenerService extends FirebaseInstanceIdService {
 
         User user = userService.getCurrentUser();
         if(user != null){
-            deviceService.sendRegistrationToServer(refreshedToken,user.getCodigoUsuario());
+            deviceService.sendRegistrationToServer(refreshedToken,user.getCodigoUsuarioSesion());
         }
 
     }

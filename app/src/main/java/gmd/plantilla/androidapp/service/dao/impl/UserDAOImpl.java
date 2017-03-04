@@ -19,13 +19,9 @@ public class UserDAOImpl implements UserDAO{
             realm.delete(User.class);
             User user = realm.createObject(User.class);
 
-            user.setCargo(model.getCargo());
-            user.setCodigoUsuario(model.getCodigoUsuario());
-            user.setDepartamento(model.getDepartamento());
-            user.setDominioUsuario(model.getDominioUsuario());
-            user.setFotoUsuario(model.getFotoUsuario());
-            user.setNombreUsuario(model.getNombreUsuario());
-            user.setProyecto(model.getProyecto());
+            user.setCodigoUsuarioSesion(model.getCodigoUsuarioSesion());
+            user.setPassword(model.getPassword());
+
             id = 1;
             realm.commitTransaction();
 

@@ -22,6 +22,12 @@ import retrofit2.http.POST;
 public interface RetrofitService {
 
     @POST(Constants.SERVICES.LOGIN_URL)
+    @Headers({
+            "Content-Type: application/json",
+            "application-id:  5DDBC5C8-8DC8-7032-FF90-CC659A9D4900",
+            "secret-key:  AABAFF2B-0009-6554-FF87-429636EDF100",
+            "application-type: REST"
+    })
     Call<LoginResponse> login(@Body LoginRequest request);
 
     @POST(Constants.SERVICES.GET_PARAMETRIC_URL)

@@ -72,8 +72,8 @@ public class LoginActivity extends AppCompatActivity {
                     dialog = ProgressDialog.show(context, getResources().getString(R.string.app_name),
                             "Iniciando sesión", true);
                     UserService loginService=new UserServiceImpl();
-                    String usuario="beto@gmd.com.pe";
-                    String contrasenna="123456";
+                    String usuario=inputIniciarSesion.getText().toString();
+                    String contrasenna=inputContrasenia.getText().toString();
                     loginService.login(context,usuario,contrasenna);
                 }
                 break;

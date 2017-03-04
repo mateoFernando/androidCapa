@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.WindowManager;
 
 import java.util.Timer;
@@ -105,7 +106,7 @@ public class SplashActivity extends AppCompatActivity {
         FcmToken device = deviceService.getDevice();
         User user = userService.getCurrentUser();
         if(device != null && device.getState() == 0 && user != null) // token no enviado y usuario en sesión
-            deviceService.sendRegistrationToServer(device.getGcmId(),user.getCodigoUsuario());
+            deviceService.sendRegistrationToServer(device.getGcmId(),user.getCodigoUsuarioSesion());
     }
 
 
@@ -143,7 +144,7 @@ public class SplashActivity extends AppCompatActivity {
 
     }
     private void goToLogin(){
-        Intent i = new Intent(SplashActivity.this , PrincipalActivity.class);
+        Intent i = new Intent(SplashActivity.this , LoginActivity.class);
         startActivity(i);
         finish();
     }

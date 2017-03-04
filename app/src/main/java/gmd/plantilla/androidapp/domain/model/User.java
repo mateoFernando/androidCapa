@@ -11,70 +11,23 @@ import io.realm.annotations.PrimaryKey;
  */
 public class User  extends RealmObject {
 
-    private String CodigoUsuario;
-    private String Cargo;
-    private String Departamento;
-    private String DominioUsuario;
-    private String FotoUsuario;
-    private String NombreUsuario;
-    private String Proyecto;
+    private String CodigoUsuarioSesion;
+    private String password;
 
 
-
-    public String getCargo() {
-        return Cargo;
+    public String getCodigoUsuarioSesion() {
+        return CodigoUsuarioSesion;
     }
 
-    public void setCargo(String cargo) {
-        Cargo = cargo;
+    public void setCodigoUsuarioSesion(String codigoUsuarioSesion) {
+        CodigoUsuarioSesion = codigoUsuarioSesion;
     }
 
-    public String getCodigoUsuario() {
-        return CodigoUsuario;
+    public String getPassword() {
+        return password;
     }
 
-    public void setCodigoUsuario(String codigoUsuario) {
-        CodigoUsuario = codigoUsuario;
+    public void setPassword(String password) {
+        this.password = password;
     }
-
-    public String getDepartamento() {
-        return Departamento;
-    }
-
-    public void setDepartamento(String departamento) {
-        Departamento = departamento;
-    }
-
-    public String getDominioUsuario() {
-        return DominioUsuario;
-    }
-
-    public void setDominioUsuario(String dominioUsuario) {
-        DominioUsuario = dominioUsuario;
-    }
-
-    public String getFotoUsuario() {
-        return FotoUsuario;
-    }
-
-    public void setFotoUsuario(String fotoUsuario) {
-        FotoUsuario = fotoUsuario;
-    }
-
-    public String getNombreUsuario() {
-        return NombreUsuario;
-    }
-
-    public void setNombreUsuario(String nombreUsuario) {
-        NombreUsuario = nombreUsuario;
-    }
-
-    public String getProyecto() {
-        return Proyecto;
-    }
-
-    public void setProyecto(String proyecto) {
-        Proyecto = proyecto;
-    }
-
 }
