@@ -1,6 +1,7 @@
 package gmd.plantilla.androidapp.view.fragment;
 
 import android.content.Context;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -13,6 +14,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -28,10 +30,10 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import gmd.plantilla.androidapp.R;
-import gmd.plantilla.androidapp.domain.model.BeneficioLista;
 import gmd.plantilla.androidapp.domain.model.Disc;
 import gmd.plantilla.androidapp.service.business.DiscsService;
 import gmd.plantilla.androidapp.service.business.impl.DiscsImpl;
+import gmd.plantilla.androidapp.util.DividerItemDecoration;
 import gmd.plantilla.androidapp.util.PaginationScrollListener;
 import gmd.plantilla.androidapp.view.adapter.AdapterDetalleDisco;
 
@@ -45,8 +47,8 @@ public class ListaDiscoFragment extends Fragment {
     ImageView filtroCategoria;
     @Bind(R.id.totalCantidades)
     TextView totalCantidades;
-    @Bind(R.id.refreshBeneficioLista)
-    SwipeRefreshLayout refreshBeneficioLista;
+    @Bind(R.id.refreshDisc)
+    SwipeRefreshLayout refreshDisc;
     private RefreshCall mRefreshCall;
     GridLayoutManager lLayout;
     Context contexr;
@@ -104,6 +106,24 @@ public class ListaDiscoFragment extends Fragment {
     private static final String TAG = "ListaDetalleFavoritoDscto";
     AdapterDetalleDisco rcAdapter;
 
+    public class VerticalSpaceItemDecoration extends RecyclerView.ItemDecoration {
+
+        private final int verticalSpaceHeight;
+
+        public VerticalSpaceItemDecoration(int verticalSpaceHeight) {
+            this.verticalSpaceHeight = verticalSpaceHeight;
+        }
+
+        @Override
+        public void getItemOffsets(Rect outRect, View view, RecyclerView parent,
+                                   RecyclerView.State state) {
+            outRect.bottom = verticalSpaceHeight;
+            outRect.right = verticalSpaceHeight;
+            outRect.left = verticalSpaceHeight;
+            outRect.top = verticalSpaceHeight;
+        }
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -117,10 +137,17 @@ public class ListaDiscoFragment extends Fragment {
 
 
 
-
-        linearLayoutManager= new LinearLayoutManager(contexr);
+        linearLayoutManager= new GridLayoutManager(contexr,2);
         recyclerView.setLayoutManager(linearLayoutManager);
 
+
+        //add ItemDecoration
+        recyclerView.addItemDecoration(new VerticalSpaceItemDecoration(15));
+        //or
+        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity()));
+        //or
+        recyclerView.addItemDecoration(
+                new DividerItemDecoration(getActivity(), R.drawable.divider));
 
         /*recyclerView.setOnScrollListener(new EndlessRecyclerOnScrollListener(linearLayoutManager) {
             @Override
@@ -195,9 +222,9 @@ public class ListaDiscoFragment extends Fragment {
 
 
 
-        refreshBeneficioLista = (SwipeRefreshLayout) view.findViewById(R.id.refreshBeneficioLista);
-        refreshBeneficioLista.setColorSchemeResources(R.color.colorPrimary, R.color.colorAccent);
-        refreshBeneficioLista.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+        refreshDisc = (SwipeRefreshLayout) view.findViewById(R.id.refreshDisc);
+        refreshDisc.setColorSchemeResources(R.color.colorPrimary, R.color.colorAccent);
+        refreshDisc.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 llamarServicioListaSolicitudes();
@@ -208,7 +235,7 @@ public class ListaDiscoFragment extends Fragment {
     }
 
     void llamarServicioListaSolicitudes() {
-        refreshBeneficioLista.setRefreshing(false);
+        refreshDisc.setRefreshing(false);
         idcategoria=0;
         allItems = new ArrayList<>();
         currentPage = 0;
@@ -221,18 +248,17 @@ public class ListaDiscoFragment extends Fragment {
 
     }
 
-    List<BeneficioLista> allItems;
+    List<Disc> allItems;
 
     LinearLayoutManager linearLayoutManager;
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void BeneficiosCorrecto(List<Disc> response) {
 
-        List<Disc> allItems2 =  new ArrayList<>();
         //isLoading = true;
         for (Disc beneficio: response) {
             //allItems.add(new DetalleDescuentoRepositorio(beneficio.getIdBeneficio(),beneficio.getImgBeneficio(),beneficio.getNomBeneficio(),beneficio.getNomEje(),(beneficio.getIdFavorito()==1)?true:false,Float.parseFloat(""+beneficio.getPuntBeneficio()),""+beneficio.getPuntBeneficio(),((beneficio.getInAbierto().equals("S"))?"ABIERTO":"")+((beneficio.getInAbierto().equals("N"))?"CERRADO":""),"a - "+beneficio.getNumDistancia()+"km "+beneficio.getNomDistrito(),"",""+beneficio.getPorcDescuento()+"%",beneficio.getIdEje()));
-            allItems2.add(beneficio);
+            allItems.add(beneficio);
         }
 
         totalCantidades.setText(String.valueOf(allItems.size()));

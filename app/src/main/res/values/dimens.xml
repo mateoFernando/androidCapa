@@ -34,4 +34,5 @@
     <dimen name="tamañoIconsDcto">12dp</dimen>
     <dimen name="marginDctoIcons">4dp</dimen>
     <dimen name="marginabierto">8dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>

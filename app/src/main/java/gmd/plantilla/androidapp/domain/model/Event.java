@@ -2,20 +2,18 @@ package gmd.plantilla.androidapp.domain.model;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.util.Date;
-
-import io.realm.RealmObject;
-
 /**
  * Created by innovagmd on 25/01/17.
  */
 
-public class Disc  extends RealmObject {
+public class Event {
     private String image;
 
     private String date;
 
     private String distance;
+    private String description;
+    private String id_disc;
 
     private String created;
 

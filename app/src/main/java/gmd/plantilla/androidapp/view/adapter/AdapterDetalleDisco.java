@@ -19,13 +19,16 @@ import java.util.List;
 
 import butterknife.ButterKnife;
 import gmd.plantilla.androidapp.R;
-import gmd.plantilla.androidapp.domain.model.BeneficioLista;
+import gmd.plantilla.androidapp.domain.model.Disc;
+import gmd.plantilla.androidapp.service.dao.DiscDAO;
+import gmd.plantilla.androidapp.service.dao.impl.DiscDAOImpl;
+import gmd.plantilla.androidapp.view.activity.DetalleDiscoActivity;
 
 //public class AdapterDetalleFavoritoDescuento extends RecyclerView.Adapter<AdapterDetalleFavoritoDescuento.listaDetalleDcto> {
 
 public class AdapterDetalleDisco extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    List<BeneficioLista> beneficioLista;
+    List<Disc> disc;
     Context context;
     String tipo="categoria";
     private static final int ITEM = 0;
@@ -33,20 +36,20 @@ public class AdapterDetalleDisco extends RecyclerView.Adapter<RecyclerView.ViewH
 
     private boolean isLoadingAdded = false;
 
-    //List<BeneficioLista> beneficioLista, ListaDetalleFavoritoDscto context, String tipo
+    //List<Disc> disc, ListaDetalleFavoritoDscto context, String tipo
     public AdapterDetalleDisco(Context context){
-        this.beneficioLista = new ArrayList<BeneficioLista>();
+        this.disc = new ArrayList<Disc>();
         this.context = context;
         this.tipo = tipo;
     }
 
 
-    public List<BeneficioLista> getBeneficioLista() {
-        return beneficioLista;
+    public List<Disc> getDisc() {
+        return disc;
     }
 
-    public void setBeneficioLista(List<BeneficioLista> beneficioLista) {
-        this.beneficioLista = beneficioLista;
+    public void setDisc(List<Disc> disc) {
+        this.disc = disc;
     }
 
     //public AdapterDetalleFavoritoDescuento.listaDetalleDcto onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -82,7 +85,7 @@ public class AdapterDetalleDisco extends RecyclerView.Adapter<RecyclerView.ViewH
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder2, int position) {
 
-        //BeneficioLista movie = beneficioLista.get(position);
+        //Disc movie = disc.get(position);
 
         switch (getItemViewType(position)) {
             case ITEM:
@@ -91,21 +94,11 @@ public class AdapterDetalleDisco extends RecyclerView.Adapter<RecyclerView.ViewH
 
                 holder.itemView.setTag(String.valueOf(position));
 
-                holder.idProveedor.setText(String.valueOf(beneficioLista.get(position).getIdBeneficio()));
-                holder.nombreRestaurante.setText(beneficioLista.get(position).getNomBeneficio());
-                Picasso.with(holder.itemView.getContext()).load(beneficioLista.get(position).getImgBeneficio()).into(holder.photoRestaurante);
-                if(beneficioLista.get(position).getPuntBeneficio()!=null) {
-                    holder.appCompatRatingBarDcto.setRating(beneficioLista.get(position).getPuntBeneficio().floatValue());
-                    holder.ratingText.setText(beneficioLista.get(position).getPuntBeneficio().toString());
-                }else{
-                holder.appCompatRatingBarDcto.setRating(Float.parseFloat("0.0"));
-                holder.ratingText.setText("0.0");
-                }
-                holder.categoria.setText(beneficioLista.get(position).getNomEje());
-                holder.abierto.setText(beneficioLista.get(position).getInAbierto());
-                holder.position.setText("a " +  beneficioLista.get(position).getNumDistancia() + " km  -  " + beneficioLista.get(position).getNomDistrito());
+                holder.nombreDisco.setText(disc.get(position).getName());
+                Picasso.with(holder.itemView.getContext()).load(disc.get(position).getImage()).into(holder.photoDisco);
+                holder.distancia.setText(disc.get(position).getDistance());
                 //holder.horaDscto.setText(beneficiosListados.get(position).getHoraDesct());
-                if(beneficioLista.get(position).isInFavorito() == true) {
+                if(disc.get(position).getFavorite() == true) {
 
                     holder.favorito.setImageResource(R.drawable.ic_favorito);
                     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
@@ -115,12 +108,6 @@ public class AdapterDetalleDisco extends RecyclerView.Adapter<RecyclerView.ViewH
 
                     holder.favorito.setImageResource(R.drawable.ic_favorito_plomo);
 
-                }
-                if(beneficioLista.get(position).getPorcDescuento()!=null) {
-                    holder.ticket.setText(beneficioLista.get(position).getPorcDescuento().toString());
-                }else{
-
-                    holder.ticket.setText("0");
                 }
                 break;
             case LOADING:
@@ -132,36 +119,36 @@ public class AdapterDetalleDisco extends RecyclerView.Adapter<RecyclerView.ViewH
 
     /*@Override
     public int getItemCount() {
-        return this.beneficioLista.size();
+        return this.disc.size();
     }*/
 
 
     @Override
     public int getItemCount() {
-        return beneficioLista == null ? 0 : beneficioLista.size();
+        return disc == null ? 0 : disc.size();
     }
 
     @Override
     public int getItemViewType(int position) {
-        return (position == beneficioLista.size() - 1 && isLoadingAdded) ? LOADING : ITEM;
+        return (position == disc.size() - 1 && isLoadingAdded) ? LOADING : ITEM;
     }
 
 
-    public void add(BeneficioLista mc) {
-        beneficioLista.add(mc);
-        notifyItemInserted(beneficioLista.size() - 1);
+    public void add(Disc mc) {
+        disc.add(mc);
+        notifyItemInserted(disc.size() - 1);
     }
 
-    public void addAll(List<BeneficioLista> mcList) {
-        for (BeneficioLista mc : mcList) {
+    public void addAll(List<Disc> mcList) {
+        for (Disc mc : mcList) {
             add(mc);
         }
     }
 
-    public void remove(BeneficioLista city) {
-        int position = beneficioLista.indexOf(city);
+    public void remove(Disc city) {
+        int position = disc.indexOf(city);
         if (position > -1) {
-            beneficioLista.remove(position);
+            disc.remove(position);
             notifyItemRemoved(position);
         }
     }
@@ -180,71 +167,56 @@ public class AdapterDetalleDisco extends RecyclerView.Adapter<RecyclerView.ViewH
 
     public void addLoadingFooter() {
         isLoadingAdded = true;
-        add(new BeneficioLista());
+        add(new Disc());
     }
 
     public void removeLoadingFooter() {
         isLoadingAdded = false;
 
-        int position = beneficioLista.size() - 1;
-        BeneficioLista item = getItem(position);
+        int position = disc.size() - 1;
+        Disc item = getItem(position);
 
         if (item != null) {
-            beneficioLista.remove(position);
+            disc.remove(position);
             notifyItemRemoved(position);
         }
     }
 
-    public BeneficioLista getItem(int position) {
-        return beneficioLista.get(position);
+    public Disc getItem(int position) {
+        return disc.get(position);
     }
 
 
     public class listaDetalleDcto extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-        public ImageView photoRestaurante;
-        public TextView nombreRestaurante;
-        public android.support.v7.widget.AppCompatRatingBar appCompatRatingBarDcto;
-        public TextView ratingText;
-        public TextView abierto;
-        public TextView categoria;
-        public TextView position;
-        public TextView horaDscto;
-        public TextView ticket;
-        public TextView idProveedor;
+        public ImageView photoDisco;
+        public TextView nombreDisco;
+        public TextView distancia;
         public ImageView favorito;
 
+        DiscDAO discDao = new DiscDAOImpl();
         public listaDetalleDcto(View view) {
 
             super(view);
             ButterKnife.bind(this, view);
             view.setOnClickListener(this);
-            photoRestaurante = (ImageView)view.findViewById(R.id.photoRestaurante);
-            nombreRestaurante = (TextView)view.findViewById(R.id.nombreRestaurante);
-            idProveedor = (TextView)view.findViewById(R.id.idProveedor);
-            appCompatRatingBarDcto = (android.support.v7.widget.AppCompatRatingBar)view.findViewById(R.id.appCompatRatingBarDcto);
-            categoria = (TextView)view.findViewById(R.id.txtCategoria);
-            ratingText = (TextView)view.findViewById(R.id.ratingText);
-            abierto = (TextView)view.findViewById(R.id.abierto);
-            position = (TextView)view.findViewById(R.id.position);
-            horaDscto = (TextView)view.findViewById(R.id.horaDscto);
-            ticket = (TextView)view.findViewById(R.id.ticket);
-            favorito = (ImageView)view.findViewById(R.id.favorito);
+            photoDisco = (ImageView)view.findViewById(R.id.photoDisco);
+            nombreDisco = (TextView)view.findViewById(R.id.nombreDisco);
+            distancia = (TextView)view.findViewById(R.id.txtDistanciaDisco);
+            favorito = (ImageView)view.findViewById(R.id.photoFavorito);
 
             //para ocultar precio
             if(tipo.equals("categoria")){
                 favorito.setVisibility(View.GONE);
-                horaDscto.setVisibility(View.VISIBLE);
             }else{
                 favorito.setVisibility(View.VISIBLE);
-                horaDscto.setVisibility(View.GONE);
             }
 
             favorito.setOnClickListener(new View.OnClickListener() {
 
                 @Override
                 public void onClick(View v) {
-                    beneficioLista.get(getAdapterPosition()).setInFavorito(!beneficioLista.get(getAdapterPosition()).isInFavorito());
+                    disc.get(getAdapterPosition()).setFavorite(!disc.get(getAdapterPosition()).getFavorite());
                     notifyDataSetChanged();
                 }
             });
@@ -258,13 +230,13 @@ public class AdapterDetalleDisco extends RecyclerView.Adapter<RecyclerView.ViewH
 //            CategoriasFragment fragment = new CategoriasFragment();
 //            fragment.show(getSupportFragmentManager(),"");
             int a= Integer.parseInt(v.getTag().toString());
-            int idProveedor = beneficioLista.get(a).getIdBeneficio();
-
-            /*Intent moreIntent=new Intent(context,DetalleProveedorActivity.class);
+            int idDisc = disc.get(a).getId();
+            discDao.insert(disc.get(a));
+            Intent moreIntent=new Intent(context,DetalleDiscoActivity.class);
             Bundle args = new Bundle();
-            args.putInt("idProveedor",idProveedor);
+            args.putInt("idDisc",idDisc);
             moreIntent.putExtras(args);
-            v.getContext().startActivity(moreIntent);*/
+            v.getContext().startActivity(moreIntent);
 
         }
 

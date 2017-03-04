@@ -30,8 +30,8 @@ public class DiscsImpl implements DiscsService {
             public void onResponse(Call<DiscResponse> call, Response<DiscResponse> response) {
                 LogUtil.i(response.toString());
                 if (response.isSuccessful()){
-                        List<Disc> beneficioListas= response.body().getResult();
-                        EventBus.getDefault().post(beneficioListas);
+                        List<Disc> discs= response.body().getResult();
+                        EventBus.getDefault().post(discs);
                 }
 
             }
@@ -39,8 +39,8 @@ public class DiscsImpl implements DiscsService {
             @Override
             public void onFailure(Call<DiscResponse> call, Throwable t) {
                 LogUtil.e("error", t.toString());
-                DiscResponse beneficioListaResponse = new DiscResponse();
-                EventBus.getDefault().post(beneficioListaResponse);
+                DiscResponse discResponse = new DiscResponse();
+                EventBus.getDefault().post(discResponse);
             }
         });
     }

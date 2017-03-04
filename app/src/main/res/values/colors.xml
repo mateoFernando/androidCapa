@@ -25,4 +25,7 @@
     <color name="azulDscto">#0974B2</color>
     <color name="grayRatingBar">#C6C6C6</color>
     <color name="yellowRatingBar">#f8c81c</color>
+    <color name="blue_toolbar">#102141</color>
+    <color name="text_color">#515151</color>
+    <color name="orange_titulos">#F3740F</color>
 </resources>
