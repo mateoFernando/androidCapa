@@ -59,7 +59,6 @@ public class ListaDiscoFragment extends Fragment {
     DiscsService
             bandejaService = new DiscsImpl();
 
-    //UserDAO userDAO = new UserDAOImpl();
 
     public static ListaDiscoFragment newInstance(String tipo) {
         Bundle args = new Bundle();

@@ -18,15 +18,14 @@ public class DiscResponse {
 
     public int totalObjects;
 
-    @SerializedName("data")
-    public List<Disc> result;
+    public List<Disc> data;
 
     public List<Disc> getResult() {
-        return result;
+        return data;
     }
 
     public void setResult(List<Disc> result) {
-        this.result = result;
+        this.data = result;
     }
 
     public int getOffset() {

@@ -19,7 +19,6 @@ import retrofit2.Callback;
 public class FcmTokenServiceImpl implements FcmTokenService {
 
     private FcmTokenDAO deviceDAO = new FcmTokenDAOImpl();
-    private UserService userService = new UserServiceImpl();
 
     @Override
     public long setDevice(FcmToken device) {

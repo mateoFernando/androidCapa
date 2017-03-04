@@ -11,12 +11,11 @@ import java.util.Date;
 public class Disc {
     private String image;
 
-    @SerializedName("_date")
-    private Date date;
+    private String date;
 
     private String distance;
 
-    private Date created;
+    private String created;
 
     private String ownerId;
 
@@ -44,11 +43,11 @@ public class Disc {
         this.image = image;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -60,11 +59,11 @@ public class Disc {
         this.distance = distance;
     }
 
-    public Date getCreated() {
+    public String getCreated() {
         return created;
     }
 
-    public void setCreated(Date created) {
+    public void setCreated(String created) {
         this.created = created;
     }
 

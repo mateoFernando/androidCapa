@@ -143,7 +143,7 @@ public class SplashActivity extends AppCompatActivity {
 
     }
     private void goToLogin(){
-        Intent i = new Intent(SplashActivity.this , MapActivity.class);
+        Intent i = new Intent(SplashActivity.this , PrincipalActivity.class);
         startActivity(i);
         finish();
     }
@@ -154,7 +154,7 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void goToMain(){
-        Intent i = new Intent(SplashActivity.this , MainActivity.class);
+        Intent i = new Intent(SplashActivity.this , PrincipalActivity.class);
         startActivity(i);
         finish();
     }

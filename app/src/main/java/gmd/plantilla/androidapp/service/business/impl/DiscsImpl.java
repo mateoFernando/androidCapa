@@ -21,27 +21,16 @@ import retrofit2.Response;
 public class DiscsImpl implements DiscsService {
 
     @Override
-
     public void LoadDiscsLista(Context context, Integer idUsuario, Integer idEje, Integer numPagina) {
 
-        /*UserService userService=new UserServiceImpl();
-        User usuario = userService.getCurrentUser();*/
-
-        Call<DiscResponse> call;
-        Log.i("BandejaBeneficio", Constants.SERVICES.URL_BASE_USADA+"/"+Constants.SERVICES.DISC_URL);
-
-        call = AndroidApplication.getInstance().getService().getDiscs();
-
-        Log.i("CargarBeneficioLista",call.request().url().toString());
+        Call<DiscResponse> call = AndroidApplication.getInstance().getService().getDiscs();
 
         call.enqueue(new Callback<DiscResponse>() {
             @Override
             public void onResponse(Call<DiscResponse> call, Response<DiscResponse> response) {
-
                 LogUtil.i(response.toString());
-                if (response.code() == 200){
+                if (response.isSuccessful()){
                         List<Disc> beneficioListas= response.body().getResult();
-
                         EventBus.getDefault().post(beneficioListas);
                 }
 

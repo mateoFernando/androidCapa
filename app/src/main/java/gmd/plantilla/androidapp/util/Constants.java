@@ -15,10 +15,6 @@ public class Constants {
     public static int SPLASH_DELAY = 4500;
 
     public static int APP_TIMEOUT = 5000;
-    public static int PLAY_SERVICES_TIMEOUT = 5000;
-
-    public static int ASYNC_REQUEST = 1;
-    public static int SYNC_REQUEST = 0;
 
     public static int SUCCESS_REQUEST = 1;
     public static int ERROR_REQUEST = 0;
@@ -39,22 +35,15 @@ public class Constants {
 
     public static class SERVICES{
 
-        public static String URL_BASE_CERTIFICACION= "http://http://gisem.osinergmin.gob.pe/servgis/json/";
-        //public static String URL_BASE_PRODUCCION= "http://http://gisem.osinergmin.gob.pe/servgis/json/";
-        public static String URL_BASE_PRODUCCION= "http://api.backendless.com";
-        public static String URL_BASE_USADA=URL_BASE_PRODUCCION;
-
-        public static String GET_COORDENADAS_URL = URL_BASE_USADA + "buffer"; // parametros: coor X, coor Y, distancia
-        public  static String URL_PRUEBA="http://gisem.osinergmin.gob.pe/servgis/json/buffer?x=-77.058&y=-12.0535&distance=50";
+        public static String URL_BASE_USADA="http://api.backendless.com/v1/data/";
 
         public static final String GET_PARAMETRIC_URL = "parametric";
         public static final String UPDATE_TOKEN_URL = "token";
         public static final String LOGIN_URL = "login";
-        public static final String DISC_URL = "v1/data/Discs";
+        public static final String DISC_URL = "Discs";
     }
 
     public static class VALUES {
-        public static final int IMG_GIF = R.drawable.ic_arrow_back;//IMAGEN A MOSTAR
         public static float ZOOM_MAPA_DEFAULT = 14;
         public static double LATITUDE_POSITION_DEFAULT = -12.096701;
         public static double LONGITUDE_POSITION_DEFAULT = -77.058767;
@@ -65,7 +54,4 @@ public class Constants {
         public static final int ACCESS_FINE_LOCATION = 1;
     }
 
-    public static class PREFERENCES{
-
-    }
 }

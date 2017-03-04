@@ -105,7 +105,7 @@ public class LoginActivity extends AppCompatActivity {
         if(dialog!=null)
             dialog.dismiss();
 
-        Intent i = new Intent(LoginActivity.this , MapActivity.class);
+        Intent i = new Intent(LoginActivity.this , PrincipalActivity.class);
         startActivity(i);
         finish();
 

@@ -99,7 +99,8 @@
             android:screenOrientation="portrait"
             android:label="@string/title_activity_mapa_prueba" />
 
-        <activity android:name=".view.activity.PrincipalActivity" >
+        <activity android:name=".view.activity.PrincipalActivity"
+            android:screenOrientation="portrait">
 
         </activity>
     </application>
