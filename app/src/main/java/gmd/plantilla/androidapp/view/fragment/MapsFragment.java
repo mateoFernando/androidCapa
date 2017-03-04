@@ -192,7 +192,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback,
         mMap = googleMap;
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         mMap.getUiSettings().setMyLocationButtonEnabled(false);
-
+        mMap.clear();
         LocalesService localesService = new LocalesServiceImpl();
         localesService.loadlocales();
 
@@ -210,8 +210,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback,
     @Override
     public void onPause() {
         super.onPause();
-        if(mMap != null)
-            mMap.clear();
+
     }
 
     @Override
