@@ -2,16 +2,17 @@ package gmd.plantilla.androidapp.domain.model;
 
 import com.google.gson.annotations.SerializedName;
 
+import io.realm.RealmObject;
+
 /**
  * Created by innovagmd on 25/01/17.
  */
 
-public class Event {
+public class Event extends RealmObject {
     private String image;
 
     private String date;
 
-    private String distance;
     private String description;
     private String id_disc;
 
@@ -19,6 +20,7 @@ public class Event {
 
     private String ownerId;
 
+    private String type;
     private String district;
 
     private String name;
@@ -31,8 +33,6 @@ public class Event {
 
     private String place;
     private int id;
-    private Boolean favorite;
-
     private String objectId;
 
     public String getImage() {
@@ -51,13 +51,6 @@ public class Event {
         this.date = date;
     }
 
-    public String getDistance() {
-        return distance;
-    }
-
-    public void setDistance(String distance) {
-        this.distance = distance;
-    }
 
     public String getCreated() {
         return created;
@@ -123,13 +116,6 @@ public class Event {
         this.id = id;
     }
 
-    public Boolean getFavorite() {
-        return favorite;
-    }
-
-    public void setFavorite(Boolean favorite) {
-        this.favorite = favorite;
-    }
 
     public String getObjectId() {
         return objectId;
@@ -137,5 +123,22 @@ public class Event {
 
     public void setObjectId(String objectId) {
         this.objectId = objectId;
+    }
+
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }
