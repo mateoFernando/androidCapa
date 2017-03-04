@@ -27,4 +27,5 @@
 Por ello, se ha creado este canal de comunicación con la finalidad de impulsar y fortalecer nuestro Estilo Graña y Montero a través de la participación de nuestros colaboradores.  Estamos seguros que esta T será utilizada de una forma adecuada, respetando y compartiendo lo mejor de nuestros equipos.
     </string>
     <string name="text_terminos_condiciones_checkbox">Aceptar Terminos y condiciones</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 </resources>

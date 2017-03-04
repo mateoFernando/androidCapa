@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#000000</color>
+    <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#FF4081</color>
     <color name="fondo_slide">#000000</color>
     <color name="button_slide">#7300ff</color>
@@ -11,4 +11,18 @@
     <color name="color_text_boton_inciar">#fff</color>
     <color name="terminos_condiciones">#000000</color>
 
+    <!--Tabs-->
+    <color name="red_tab_selected">#000000</color>
+    <color name="red_tab_selected_icon">#545454</color><!--809B1417-->
+    <color name="transparent">#00ffffff</color>
+    <color name="orange_filtro">#8C8C8C</color>
+
+    <color name="transparente">#00ffffff</color>
+    <color name="linerview">#15636363</color>
+    <color name="nombreRestaurante">#000000</color>
+    <color name="ratingText">#42636363</color>
+    <color name="ticketText">#00BA02</color>
+    <color name="azulDscto">#0974B2</color>
+    <color name="grayRatingBar">#C6C6C6</color>
+    <color name="yellowRatingBar">#f8c81c</color>
 </resources>

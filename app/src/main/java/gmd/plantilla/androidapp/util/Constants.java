@@ -40,7 +40,8 @@ public class Constants {
     public static class SERVICES{
 
         public static String URL_BASE_CERTIFICACION= "http://http://gisem.osinergmin.gob.pe/servgis/json/";
-        public static String URL_BASE_PRODUCCION= "http://http://gisem.osinergmin.gob.pe/servgis/json/";
+        //public static String URL_BASE_PRODUCCION= "http://http://gisem.osinergmin.gob.pe/servgis/json/";
+        public static String URL_BASE_PRODUCCION= "http://api.backendless.com";
         public static String URL_BASE_USADA=URL_BASE_PRODUCCION;
 
         public static String GET_COORDENADAS_URL = URL_BASE_USADA + "buffer"; // parametros: coor X, coor Y, distancia
@@ -49,6 +50,7 @@ public class Constants {
         public static final String GET_PARAMETRIC_URL = "parametric";
         public static final String UPDATE_TOKEN_URL = "token";
         public static final String LOGIN_URL = "login";
+        public static final String DISC_URL = "v1/data/Discs";
     }
 
     public static class VALUES {

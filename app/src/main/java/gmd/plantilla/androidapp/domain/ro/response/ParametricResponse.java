@@ -7,7 +7,7 @@ import gmd.plantilla.androidapp.domain.model.Parametric;
 /**
  * Created by jmauriciog on 03/06/2016.
  */
-public class ParametricResponse extends BaseResponse {
+public class ParametricResponse extends BaseResponse_Backendless {
 
     ArrayList<Parametric> parametricList;
 

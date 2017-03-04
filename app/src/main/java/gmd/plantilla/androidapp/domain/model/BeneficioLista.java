@@ -1,7 +1,5 @@
 package gmd.plantilla.androidapp.domain.model;
 
-import com.gmdinnovacion.beneficiosgmd.disfruta.utiles.Constante;
-
 /**
  * Created by avermes on 13/2/2017.
  */

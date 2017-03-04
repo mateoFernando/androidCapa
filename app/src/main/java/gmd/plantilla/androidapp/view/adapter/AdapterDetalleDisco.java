@@ -12,21 +12,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.gmdinnovacion.beneficiosgmd.disfruta.R;
-import com.gmdinnovacion.beneficiosgmd.disfruta.domain.model.BeneficioLista;
-import com.gmdinnovacion.beneficiosgmd.disfruta.view.activity.DetalleProveedorActivity;
-import com.gmdinnovacion.beneficiosgmd.disfruta.view.fragment.ListaDetalleDscto;
-import com.gmdinnovacion.beneficiosgmd.disfruta.view.fragment.ListaDetalleFavoritoDscto;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.ButterKnife;
+import gmd.plantilla.androidapp.R;
+import gmd.plantilla.androidapp.domain.model.BeneficioLista;
 
-/**
- * Created by avermes on 16/12/2016.
- */
 //public class AdapterDetalleFavoritoDescuento extends RecyclerView.Adapter<AdapterDetalleFavoritoDescuento.listaDetalleDcto> {
 
 public class AdapterDetalleDisco extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -60,7 +54,7 @@ public class AdapterDetalleDisco extends RecyclerView.Adapter<RecyclerView.ViewH
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        /*View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.design_lista_detalle_dscto,parent, false);
+        /*View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.design_lista_detalle_disco,parent, false);
         AdapterDetalleFavoritoDescuento.listaDetalleDcto rcv = new AdapterDetalleFavoritoDescuento.listaDetalleDcto(view);
         */
         RecyclerView.ViewHolder viewHolder = null;
@@ -80,7 +74,7 @@ public class AdapterDetalleDisco extends RecyclerView.Adapter<RecyclerView.ViewH
     @NonNull
     private RecyclerView.ViewHolder getViewHolder(ViewGroup parent, LayoutInflater inflater) {
         RecyclerView.ViewHolder viewHolder;
-        View v1 = inflater.inflate(R.layout.design_lista_detalle_dscto, parent, false);
+        View v1 = inflater.inflate(R.layout.design_lista_detalle_disco, parent, false);
         viewHolder = new listaDetalleDcto(v1);
         return viewHolder;
     }
@@ -266,11 +260,11 @@ public class AdapterDetalleDisco extends RecyclerView.Adapter<RecyclerView.ViewH
             int a= Integer.parseInt(v.getTag().toString());
             int idProveedor = beneficioLista.get(a).getIdBeneficio();
 
-            Intent moreIntent=new Intent(context,DetalleProveedorActivity.class);
+            /*Intent moreIntent=new Intent(context,DetalleProveedorActivity.class);
             Bundle args = new Bundle();
             args.putInt("idProveedor",idProveedor);
             moreIntent.putExtras(args);
-            v.getContext().startActivity(moreIntent);
+            v.getContext().startActivity(moreIntent);*/
 
         }
 

@@ -94,6 +94,10 @@
         <activity
             android:name=".view.activity.MapaPrueba"
             android:label="@string/title_activity_mapa_prueba" />
+
+        <activity android:name=".view.activity.PrincipalActivity" >
+
+        </activity>
     </application>
 
 </manifest>

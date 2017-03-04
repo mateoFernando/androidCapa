@@ -21,4 +21,17 @@
     <dimen name="radius_button">5dp</dimen>
 
     <dimen name="text_terminos_size">14sp</dimen>
+
+    <dimen name="appbar_padding_top">8dp</dimen>
+    <dimen name="appbar_padding_bottom">6dp</dimen>
+
+    <dimen name="paddingDctoPadre">10dp</dimen>
+    <dimen name="paddingDcto">10dp</dimen>
+    <dimen name="nombreRestaurante">18dp</dimen>
+    <dimen name="marginDcto">5dp</dimen>
+    <dimen name="textoSmalDscto">12dp</dimen>
+    <dimen name="textoDscto">12dp</dimen>
+    <dimen name="tamañoIconsDcto">12dp</dimen>
+    <dimen name="marginDctoIcons">4dp</dimen>
+    <dimen name="marginabierto">8dp</dimen>
 </resources>

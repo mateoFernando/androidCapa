@@ -17,19 +17,6 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.gmdinnovacion.beneficiosgmd.disfruta.R;
-import com.gmdinnovacion.beneficiosgmd.disfruta.domain.model.BeneficioLista;
-import com.gmdinnovacion.beneficiosgmd.disfruta.domain.ro.response.BeneficioListaResponse;
-import com.gmdinnovacion.beneficiosgmd.disfruta.services.business.BandejaBeneficioFavoritoListaService;
-import com.gmdinnovacion.beneficiosgmd.disfruta.services.business.BandejaBeneficioListaService;
-import com.gmdinnovacion.beneficiosgmd.disfruta.services.business.impl.BandejaBeneficioListaImpl;
-import com.gmdinnovacion.beneficiosgmd.disfruta.services.business.impl.BandejaBeneficiosFavoritoListadoImpl;
-import com.gmdinnovacion.beneficiosgmd.disfruta.services.dao.UserDAO;
-import com.gmdinnovacion.beneficiosgmd.disfruta.services.dao.impl.UserDAOImpl;
-import com.gmdinnovacion.beneficiosgmd.disfruta.utiles.EndlessRecyclerOnScrollListener;
-import com.gmdinnovacion.beneficiosgmd.disfruta.utiles.PaginationScrollListener;
-import com.gmdinnovacion.beneficiosgmd.disfruta.view.adapter.AdapterDetalleDescuento;
-import com.gmdinnovacion.beneficiosgmd.disfruta.view.adapter.AdapterDetalleFavoritoDescuento;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -38,20 +25,27 @@ import org.greenrobot.eventbus.ThreadMode;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
+import butterknife.Bind;
 import butterknife.ButterKnife;
+import gmd.plantilla.androidapp.R;
+import gmd.plantilla.androidapp.domain.model.BeneficioLista;
+import gmd.plantilla.androidapp.domain.model.Disc;
+import gmd.plantilla.androidapp.service.business.DiscsService;
+import gmd.plantilla.androidapp.service.business.impl.DiscsImpl;
+import gmd.plantilla.androidapp.util.PaginationScrollListener;
+import gmd.plantilla.androidapp.view.adapter.AdapterDetalleDisco;
 
 public class ListaDiscoFragment extends Fragment {
 
     private static String tipoC;
 
-    @BindView(R.id.lista_categoria)
+    @Bind(R.id.lista_categoria)
     RecyclerView recyclerView;
-    @BindView(R.id.filtroCategoria)
+    @Bind(R.id.filtroCategoria)
     ImageView filtroCategoria;
-    @BindView(R.id.totalCantidades)
+    @Bind(R.id.totalCantidades)
     TextView totalCantidades;
-    @BindView(R.id.refreshBeneficioLista)
+    @Bind(R.id.refreshBeneficioLista)
     SwipeRefreshLayout refreshBeneficioLista;
     private RefreshCall mRefreshCall;
     GridLayoutManager lLayout;
@@ -62,16 +56,16 @@ public class ListaDiscoFragment extends Fragment {
         boolean onMethodRefreshCall();
     }
 
-    BandejaBeneficioFavoritoListaService
-            bandejaService = new BandejaBeneficiosFavoritoListadoImpl();
+    DiscsService
+            bandejaService = new DiscsImpl();
 
-    UserDAO userDAO = new UserDAOImpl();
+    //UserDAO userDAO = new UserDAOImpl();
 
-    public static ListaDetalleFavoritoDscto newInstance(String tipo) {
+    public static ListaDiscoFragment newInstance(String tipo) {
         Bundle args = new Bundle();
 
         args.putString("tipo", tipo);
-        ListaDetalleFavoritoDscto fragment = new ListaDetalleFavoritoDscto();
+        ListaDiscoFragment fragment = new ListaDiscoFragment();
         fragment.setArguments(args);
 
 
@@ -100,7 +94,7 @@ public class ListaDiscoFragment extends Fragment {
         super.onStop();
     }
 
-    @BindView(R.id.main_progress)
+    @Bind(R.id.main_progress)
     ProgressBar progressBar;
 
     private static final int PAGE_START = 0;
@@ -109,17 +103,17 @@ public class ListaDiscoFragment extends Fragment {
     private int TOTAL_PAGES = 2;
     private int currentPage = PAGE_START;
     private static final String TAG = "ListaDetalleFavoritoDscto";
-    AdapterDetalleFavoritoDescuento rcAdapter;
+    AdapterDetalleDisco rcAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_lista_detalle_dscto_rv, container, false);
+        View view = inflater.inflate(R.layout.fragment_lista_detalle_discos, container, false);
         ButterKnife.bind(this, view);
         allItems = new ArrayList<>();
         tipoC = getArguments().getString("tipo");
-        bandejaService.CargarBerneficiosLista(contexr,userDAO.getCurrentUser().getIdUsuario(),null,0);
+        bandejaService.LoadDiscsLista(contexr,0,null,0);
 
 
 
@@ -146,13 +140,13 @@ public class ListaDiscoFragment extends Fragment {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
         //AdapterDetalleFavoritoDescuento rcAdapter = new AdapterDetalleFavoritoDescuento(allItems, this, tipoC);
-        rcAdapter = new AdapterDetalleFavoritoDescuento(getActivity());
+        rcAdapter = new AdapterDetalleDisco(getActivity());
         recyclerView.setAdapter(rcAdapter);
         filtroCategoria.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CategoriasFavoritoFragment fragment = new CategoriasFavoritoFragment(new CategoriasFragmentDismmiss());
-                fragment.show(getFragmentManager(),"");
+                /*CategoriasFavoritoFragment fragment = new CategoriasFavoritoFragment(new CategoriasFragmentDismmiss());
+                fragment.show(getFragmentManager(),"");*/
             }
         });
 
@@ -176,7 +170,7 @@ public class ListaDiscoFragment extends Fragment {
                             rcAdapter.removeLoadingFooter();
                             isLoading = false;
                         }*/
-                        bandejaService.CargarBerneficiosLista(contexr, userDAO.getCurrentUser().getIdUsuario(), (idcategoria==0)?null:idcategoria, currentPage);
+                        bandejaService.LoadDiscsLista(contexr, 0, (idcategoria==0)?null:idcategoria, currentPage);
 
                     }
                 }, 1000);
@@ -224,7 +218,7 @@ public class ListaDiscoFragment extends Fragment {
 
         rcAdapter.clear();
         rcAdapter.notifyDataSetChanged();
-        bandejaService.CargarBerneficiosLista(contexr,userDAO.getCurrentUser().getIdUsuario(),null,0);
+        bandejaService.LoadDiscsLista(contexr,0,null,0);
 
     }
 
@@ -233,12 +227,13 @@ public class ListaDiscoFragment extends Fragment {
     LinearLayoutManager linearLayoutManager;
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void BeneficiosCorrecto(List<BeneficioLista> response) {
+    public void BeneficiosCorrecto(List<Disc> response) {
 
+        List<Disc> allItems2 =  new ArrayList<>();
         //isLoading = true;
-        for (BeneficioLista beneficio: response) {
+        for (Disc beneficio: response) {
             //allItems.add(new DetalleDescuentoRepositorio(beneficio.getIdBeneficio(),beneficio.getImgBeneficio(),beneficio.getNomBeneficio(),beneficio.getNomEje(),(beneficio.getIdFavorito()==1)?true:false,Float.parseFloat(""+beneficio.getPuntBeneficio()),""+beneficio.getPuntBeneficio(),((beneficio.getInAbierto().equals("S"))?"ABIERTO":"")+((beneficio.getInAbierto().equals("N"))?"CERRADO":""),"a - "+beneficio.getNumDistancia()+"km "+beneficio.getNomDistrito(),"",""+beneficio.getPorcDescuento()+"%",beneficio.getIdEje()));
-            allItems.add(beneficio);
+            allItems2.add(beneficio);
         }
 
         totalCantidades.setText(String.valueOf(allItems.size()));
@@ -295,7 +290,7 @@ public class ListaDiscoFragment extends Fragment {
             rcAdapter.clear();
             rcAdapter.notifyDataSetChanged();
 
-            bandejaService.CargarBerneficiosLista(contexr,userDAO.getCurrentUser().getIdUsuario(),data[0],0);
+            bandejaService.LoadDiscsLista(contexr,0,data[0],0);
         }
     }
 

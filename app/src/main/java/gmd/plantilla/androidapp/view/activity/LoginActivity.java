@@ -63,6 +63,9 @@ public class LoginActivity extends AppCompatActivity {
             case R.id.btn_ingreso:
 
                 if(validar()){
+                    Intent i = new Intent(LoginActivity.this , PrincipalActivity.class);
+                    startActivity(i);
+                    finish();
                     UserService loginService=new UserServiceImpl();
                     String usuario="beto@gmd.com.pe";
                     String contrasenna="123456";
@@ -93,7 +96,7 @@ public class LoginActivity extends AppCompatActivity {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void LoginCorrecto(LoginResponse response) {
-        Intent i = new Intent(LoginActivity.this , SlideActivity.class);
+        Intent i = new Intent(LoginActivity.this , PrincipalActivity.class);
         startActivity(i);
         finish();
 
