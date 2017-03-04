@@ -28,4 +28,7 @@ Por ello, se ha creado este canal de comunicación con la finalidad de impulsar 
     </string>
     <string name="text_terminos_condiciones_checkbox">Aceptar Terminos y condiciones</string>
     <string name="section_format">Hello World from section: %1$d</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

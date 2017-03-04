@@ -24,7 +24,7 @@ import butterknife.Bind;
 
 import gmd.plantilla.androidapp.R;
 import gmd.plantilla.androidapp.view.fragment.ListaDiscoFragment;
-import gmd.plantilla.androidapp.view.fragment.MapFragment;
+import gmd.plantilla.androidapp.view.fragment.MapsFragment;
 
 public class PrincipalActivity extends AppCompatActivity {
 
@@ -58,7 +58,7 @@ public class PrincipalActivity extends AppCompatActivity {
 
         fragments.add(ListaDiscoFragment.newInstance("1"));
         fragments.add(ListaDiscoFragment.newInstance("2"));
-        fragments.add(MapFragment.newInstance("1"));
+        fragments.add(MapsFragment.newInstance("1"));
         fragments.add(ListaDiscoFragment.newInstance("1"));
 
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(),fragments);
