@@ -41,6 +41,7 @@ public class Constants {
         public static final String UPDATE_TOKEN_URL = "token";
         public static final String LOGIN_URL = "login";
         public static final String DISC_URL = "Discs";
+        public static final String EVENTS_URL = "Events";
         public static final String LOCALES_URL = "Locales";
 
     }
