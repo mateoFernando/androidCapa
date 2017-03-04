@@ -35,7 +35,10 @@ public class UserServiceImpl implements UserService {
                 if(response.isSuccessful()){
                     LoginResponse loginResponse = response.body();
                     LogUtil.d("LoginResponse", "LoginResponse" + response.body().toString());
-
+                    User user = new User();
+                    user.setPassword(loginResponse.getPassword());
+                    user.setCodigoUsuarioSesion(loginResponse.getCodigoUsuarioSesion());
+                    userDao.insert(user);
                     EventBus.getDefault().post(loginResponse);
                 }
                 else{
