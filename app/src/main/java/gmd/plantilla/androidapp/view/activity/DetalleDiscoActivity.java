@@ -60,47 +60,13 @@ import pe.com.gmd.ao.innova.androidLib.LogUtil;
 
 public class DetalleDiscoActivity extends BaseActivity{
 
-    @Bind(R.id.lista_galeria)
-    RecyclerView listaGaleria;
-
-    @Bind(R.id.lista_servicio)
-    RecyclerView listaServicio;
-
     @Bind(R.id.close)
     ImageButton close;
 
     @Bind(R.id.txtDireccion)
     TextView txtDireccion;
-
-    @Bind(R.id.llamarproveedor)
-    ImageView llamarproveedor;
-
-    @Bind(R.id.txtGaleria)
-    TextView txtGaleria;
-
-    @Bind(R.id.appCompatRating)
-    android.support.v7.widget.AppCompatRatingBar appCompatRatingBar;
-
-    @Bind(R.id.txtRatingText)
-    TextView txtRatingText;
-
-    @Bind(R.id.txtTelProveedor)
-    TextView txtTelProveedor;
-
-    @Bind(R.id.txtApertura)
-    TextView txtApertura;
-
-    @Bind(R.id.txtWeb)
-    TextView txtWeb;
-
-    @Bind(R.id.txtDescripcion)
-    TextView txtDescripcion;
-
     @Bind(R.id.imageViewEmpresa)
     ImageView imageViewEmpresa;
-
-    @Bind(R.id.webSide)
-    LinearLayout webside;
 
     @Bind(R.id.fab)
     FloatingActionButton fab;
@@ -117,7 +83,7 @@ public class DetalleDiscoActivity extends BaseActivity{
     double latitud = 0.0;
     String iconMap = "";
 
-    DiscDAO discDao = new DiscDAOImpl();
+    DiscDAO discDao;
     Toolbar toolbar;
 
     Disc disc;
@@ -129,7 +95,7 @@ public class DetalleDiscoActivity extends BaseActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle_disco);
         ButterKnife.bind(this);
-
+        discDao = new DiscDAOImpl();
         if (Build.VERSION.SDK_INT >= 21) {
             getWindow().setNavigationBarColor(getResources().getColor(R.color.blue_toolbar));
             getWindow().setStatusBarColor(getResources().getColor(R.color.blue_toolbar));
@@ -155,51 +121,6 @@ public class DetalleDiscoActivity extends BaseActivity{
             }
         });
 
-        txtGaleria.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //////callActivity(GaleriaActivity.class.getName());
-//                Intent objInt = new Intent(getApplicationContext(),GaleriaActivity.class);
-//                startActivity(objInt);
-            }
-        });
-
-
-        webside.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-
-                    Intent myWebLink = new Intent(android.content.Intent.ACTION_VIEW);
-                    myWebLink.setData(Uri.parse(txtWeb.getText().toString()));
-                    startActivity(myWebLink);
-                }catch (ActivityNotFoundException e){
-                    e.getMessage();
-                }catch (Exception e){
-                    e.getMessage();
-                }
-            }
-        });
-
-        llamarproveedor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                /*if (PermisionChecker.isCallPhoneAvaliable(getApplicationContext())) {
-                    Uri numero = Uri.parse("tel:" + txtTelProveedor.getText().toString().trim());
-                    Intent intent = new Intent(Intent.ACTION_CALL, numero);
-                    try {
-                        startActivity(intent);
-                    }catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                } else {
-                    ActivityCompat.requestPermissions(activity,
-                            new String[]{Manifest.permission.CALL_PHONE},
-                            Constante.PERMISSIONS.MY_PERMISSIONS_CALL_PHONE);
-                }*/
-
-            }
-        });
 
         /*
         *INICIO Servicio
@@ -229,9 +150,9 @@ public class DetalleDiscoActivity extends BaseActivity{
 
         toolbar.setTitle(disc.getName());
         toolbar.setSubtitle(disc.getDistrict());
-            setTitle(disc.getName());
         getSupportActionBar().setSubtitle(disc.getDistrict());
         getSupportActionBar().setTitle(disc.getName());
+        setTitle(disc.getName());
             txtDireccion.setText(disc.getPlace());
             //appCompatRatingBar.setRating(listResultado.get(0).getAppCompatRatingBarDcto());
             //txtRatingText.setText(String.valueOf(listResultado.get(0).getRatingText()));
@@ -249,11 +170,6 @@ public class DetalleDiscoActivity extends BaseActivity{
             latitud = Double.parseDouble(listResultado.get(0).getLatitud());*/
 
 
-        listaGaleria.setHasFixedSize(true);
-        manager = new GridLayoutManager(this, 2);
-
-        String categoriaProv="0";
-        listaGaleria.setLayoutManager(manager);
         //Llamar a mis elementos d la lista
         /*ElementosPruebaRepositorio objElemPru = new ElementosPruebaRepositorio();
         List<String> lista = objElemPru.listaGaleria(categoriaProv);
@@ -399,23 +315,6 @@ public class DetalleDiscoActivity extends BaseActivity{
     /*//////////////////////////////////////////////////////////////////*/
 
 
-    @OnClick({R.id.agrupar_grilla, R.id.agrupar_lista})
-    public void onClick(View view) {
-        int columns = 1;
-        switch (view.getId()) {
-            case R.id.agrupar_grilla:
-                columns = 3;
-                break;
-            case R.id.agrupar_lista:
-                columns = 1;
-                break;
-        }
-
-        /*manager = new GridLayoutManager(this, columns);
-        listaGaleria.setLayoutManager(manager);
-        listaGaleria.setAdapter(galleryAdapter);
-        listaGaleria.setItemAnimator(new DefaultItemAnimator());*/
-    }
 
 
 
@@ -423,8 +322,8 @@ public class DetalleDiscoActivity extends BaseActivity{
 
     public void llamar(View view) {
 
-        String llamarMesaAyuda = txtTelProveedor.getText().toString().trim();
-        Log.v("oe", llamarMesaAyuda);
+        //String llamarMesaAyuda = txtTelProveedor.getText().toString().trim();
+        //Log.v("oe", llamarMesaAyuda);
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.CALL_PHONE}, 144);
@@ -439,7 +338,7 @@ public class DetalleDiscoActivity extends BaseActivity{
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if(requestCode==144){
-            llamar(llamarproveedor);
+            //llamar(llamarproveedor);
         }
     }
 }

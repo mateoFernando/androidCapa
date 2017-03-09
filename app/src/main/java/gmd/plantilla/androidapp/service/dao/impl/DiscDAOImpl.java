@@ -21,6 +21,7 @@ public class DiscDAOImpl implements DiscDAO{
             realm.delete(Disc.class);
             Disc user = realm.createObject(Disc.class);
 
+            user.setName(model.getName());
             user.setFavorite(model.getFavorite());
             user.setDate(model.getDate());
             user.setDistance(model.getDistance());
