@@ -25,12 +25,14 @@ import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.Date;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import gmd.plantilla.androidapp.R;
-import gmd.plantilla.androidapp.domain.model.Disc;
-import gmd.plantilla.androidapp.service.dao.DiscDAO;
-import gmd.plantilla.androidapp.service.dao.impl.DiscDAOImpl;
+import gmd.plantilla.androidapp.domain.model.Event;
+import gmd.plantilla.androidapp.service.dao.EventDAO;
+import gmd.plantilla.androidapp.service.dao.impl.EventDAOImpl;
 
 public class DetalleEventoActivity extends BaseActivity {
 
@@ -57,7 +59,7 @@ public class DetalleEventoActivity extends BaseActivity {
     double latitud = 0.0;
     String iconMap = "";
 
-    DiscDAO discDao;
+    EventDAO eventDao;
     Toolbar toolbar;
 
 
@@ -70,22 +72,29 @@ public class DetalleEventoActivity extends BaseActivity {
     @Bind(R.id.toolbar_subtitle)
     TextView toolbar_subtitle;
 
+    @Bind(R.id.txtdescripcion)
+    TextView txtdescripcion;
+
+    private final android.text.format.DateFormat _sdfWatchTime = new android.text.format.DateFormat();
+
+    java.text.SimpleDateFormat sdf =
+            new java.text.SimpleDateFormat("EEEE d MMMM, yyyy");
     String codigoId;
-    Disc disc;
+    Event event;
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detalle_disco);
+        setContentView(R.layout.activity_detalle_evento);
         ButterKnife.bind(this);
-        discDao = new DiscDAOImpl();
+        eventDao = new EventDAOImpl();
         if (Build.VERSION.SDK_INT >= 21) {
             getWindow().setNavigationBarColor(getResources().getColor(R.color.blue_toolbar));
             getWindow().setStatusBarColor(getResources().getColor(R.color.blue_toolbar));
         }
 
         idProveedorSelect = getIntent().getExtras().getInt("idEvent");
-        Toast.makeText(getApplicationContext(),""+idProveedorSelect, Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(),""+idProveedorSelect, Toast.LENGTH_LONG).show();
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -105,7 +114,7 @@ public class DetalleEventoActivity extends BaseActivity {
         });
 
 
-        disc = discDao.getCurrentDisc();
+        event = eventDao.getCurrentEvent();
 
 
         /*
@@ -141,13 +150,15 @@ public class DetalleEventoActivity extends BaseActivity {
         super.onResume();
 
 
-        toolbar.setTitle(disc.getName());
-        toolbar.setSubtitle(disc.getDistrict());
-        getSupportActionBar().setSubtitle(disc.getDistrict());
-        getSupportActionBar().setTitle(disc.getName());
-        setTitle(disc.getName());
-            txtDireccion.setText(disc.getPlace());
+        toolbar.setTitle(event.getName());
+        toolbar.setSubtitle(event.getDistrict());
+        getSupportActionBar().setSubtitle(event.getDistrict());
+        getSupportActionBar().setTitle(event.getName());
+        setTitle(event.getName());
 
+        Date date = new Date(Long.parseLong(event.getDate()));
+        txtDireccion.setText(_sdfWatchTime.format("EEEE d MMMM, yyyy",date).toString());
+        txtdescripcion.setText(event.getDescription());
             //appCompatRatingBar.setRating(listResultado.get(0).getAppCompatRatingBarDcto());
             //txtRatingText.setText(String.valueOf(listResultado.get(0).getRatingText()));
             //txtTelProveedor.setText(listResultado.get(0).getTelefonos());
@@ -159,7 +170,7 @@ public class DetalleEventoActivity extends BaseActivity {
             txtWifi.setText(listResultado.get(0).getWifi());
             txtEstacinamiento.setText(listResultado.get(0).getEstacionamiento());*/
 
-            Picasso.with(getApplicationContext()).load(disc.getImage()).into(imageViewEmpresa);
+            Picasso.with(getApplicationContext()).load(event.getImage()).into(imageViewEmpresa);
             /*longitud= Double.parseDouble(listResultado.get(0).getLongitud());
             latitud = Double.parseDouble(listResultado.get(0).getLatitud());*/
 

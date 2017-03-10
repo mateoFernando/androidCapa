@@ -10,6 +10,6 @@ public interface EventDAO {
 
     public long insert(Event model);
 
-    public Event getCurrentDisc();
+    public Event getCurrentEvent();
 
 }

@@ -61,7 +61,7 @@ public class PrincipalActivity extends AppCompatActivity {
         /*PRINCIPAL TAB*/
 
         fragments.add(ListaDiscoFragment.newInstance("1"));
-        fragments.add(ListaEventosFragment.newInstance("2"));
+        fragments.add(ListaEventosFragment.newInstance(""));
         fragments.add(MapsFragment.newInstance("1"));
         fragments.add(ProfileFragment.newInstance("1"));
 

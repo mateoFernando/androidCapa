@@ -23,7 +23,7 @@ public class DiscsImpl implements DiscsService {
     @Override
     public void LoadDiscsLista(Context context, Integer idUsuario, Integer idEje, Integer numPagina) {
 
-        Call<DiscResponse> call = AndroidApplication.getInstance().getService().getDiscs();
+        Call<DiscResponse> call = AndroidApplication.getInstance().getService().getDiscs(4,numPagina);
 
         call.enqueue(new Callback<DiscResponse>() {
             @Override

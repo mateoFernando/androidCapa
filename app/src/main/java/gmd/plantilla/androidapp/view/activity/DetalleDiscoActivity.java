@@ -32,6 +32,7 @@ import gmd.plantilla.androidapp.R;
 import gmd.plantilla.androidapp.domain.model.Disc;
 import gmd.plantilla.androidapp.service.dao.DiscDAO;
 import gmd.plantilla.androidapp.service.dao.impl.DiscDAOImpl;
+import gmd.plantilla.androidapp.view.fragment.ListaEventosFragment;
 
 public class DetalleDiscoActivity extends BaseActivity {
 
@@ -88,7 +89,7 @@ public class DetalleDiscoActivity extends BaseActivity {
         }
 
         idProveedorSelect = getIntent().getExtras().getInt("idDisc");
-        Toast.makeText(getApplicationContext(),""+idProveedorSelect, Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(),""+idProveedorSelect, Toast.LENGTH_LONG).show();
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -126,6 +127,11 @@ public class DetalleDiscoActivity extends BaseActivity {
         /*
         *FIN Servicio
         */
+
+        ListaEventosFragment fragment = ListaEventosFragment.newInstance(""+idProveedorSelect);
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .commit();
     }
 
 

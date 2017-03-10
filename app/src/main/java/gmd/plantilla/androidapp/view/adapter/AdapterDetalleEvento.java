@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import butterknife.ButterKnife;
@@ -35,6 +36,7 @@ public class AdapterDetalleEvento extends RecyclerView.Adapter<RecyclerView.View
     private static final int LOADING = 1;
 
     private boolean isLoadingAdded = false;
+    private final android.text.format.DateFormat _sdfWatchTime = new android.text.format.DateFormat();
 
     //List<Disc> disc, ListaDetalleFavoritoDscto context, String tipo
     public AdapterDetalleEvento(Context context){
@@ -97,7 +99,8 @@ public class AdapterDetalleEvento extends RecyclerView.Adapter<RecyclerView.View
                 holder.nombreDisco.setText(event.get(position).getName());
                 Picasso.with(holder.itemView.getContext()).load(event.get(position).getImage()).into(holder.photoDisco);
                 holder.distancia.setText(event.get(position).getType());
-                holder.fecha.setText(event.get(position).getDate());
+                Date date = new Date(Long.parseLong(event.get(position).getDate()));
+                holder.fecha.setText(_sdfWatchTime.format("EEEE d MMMM, yyyy",date).toString());
                 //holder.horaDscto.setText(beneficiosListados.get(position).getHoraDesct());
                 break;
             case LOADING:
@@ -185,7 +188,7 @@ public class AdapterDetalleEvento extends RecyclerView.Adapter<RecyclerView.View
         public TextView fecha;
         public ImageView favorito;
 
-        EventDAO discDao = new EventDAOImpl();
+        EventDAO eventDao = new EventDAOImpl();
         public listaDetalleDcto(View view) {
 
             super(view);
@@ -222,11 +225,11 @@ public class AdapterDetalleEvento extends RecyclerView.Adapter<RecyclerView.View
 //            CategoriasFragment fragment = new CategoriasFragment();
 //            fragment.show(getSupportFragmentManager(),"");
             int a= Integer.parseInt(v.getTag().toString());
-            int idDisc = event.get(a).getId();
-            discDao.insert(event.get(a));
+            int idEvent = event.get(a).getId();
+            eventDao.insert(event.get(a));
             Intent moreIntent=new Intent(context,DetalleEventoActivity.class);
             Bundle args = new Bundle();
-            args.putInt("idEvent",idDisc);
+            args.putInt("idEvent",idEvent);
             moreIntent.putExtras(args);
             v.getContext().startActivity(moreIntent);
 

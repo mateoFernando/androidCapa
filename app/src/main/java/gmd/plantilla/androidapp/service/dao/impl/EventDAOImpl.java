@@ -22,6 +22,8 @@ public class EventDAOImpl implements EventDAO{
             user.setDate(model.getDate());
             user.setType(model.getType());
             user.setDistrict(model.getDistrict());
+            user.setName(model.getName());
+            user.setDescription(model.getDescription());
             user.setId(model.getId());
             user.setImage(model.getImage());
             user.setPlace(model.getPlace());
@@ -40,7 +42,7 @@ public class EventDAOImpl implements EventDAO{
     }
 
     @Override
-    public Event getCurrentDisc() {
+    public Event getCurrentEvent() {
         // TODO Auto-generated method stub
         Event user = null;
         Realm realm = Realm.getDefaultInstance();

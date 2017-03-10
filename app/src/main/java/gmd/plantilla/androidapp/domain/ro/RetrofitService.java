@@ -20,6 +20,7 @@ import retrofit2.http.Headers;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface RetrofitService {
 
@@ -38,14 +39,14 @@ public interface RetrofitService {
     @POST(Constants.SERVICES.UPDATE_TOKEN_URL)
     Call<TokenResponse> updateToken(@Body TokenRequest request);
 
-    @GET(Constants.SERVICES.DISC_URL)
+    @GET(Constants.SERVICES.DISC_URL+"?")
     @Headers({
             "Content-Type: application/json",
             "application-id:  5DDBC5C8-8DC8-7032-FF90-CC659A9D4900",
             "secret-key:  AABAFF2B-0009-6554-FF87-429636EDF100",
             "application-type: REST"
     })
-    Call<DiscResponse> getDiscs();
+    Call<DiscResponse> getDiscs(@Query("pageSize") Integer pageSize,@Query("offset") Integer offset);
 
     @GET(Constants.SERVICES.LOCALES_URL)
     @Headers({
@@ -57,13 +58,13 @@ public interface RetrofitService {
     Call<LocalesResponse> getLocales();
 
 
-    @GET(Constants.SERVICES.EVENTS_URL)
+    @GET(Constants.SERVICES.EVENTS_URL+"?")
     @Headers({
             "Content-Type: application/json",
             "application-id:  5DDBC5C8-8DC8-7032-FF90-CC659A9D4900",
             "secret-key:  AABAFF2B-0009-6554-FF87-429636EDF100",
             "application-type: REST"
     })
-    Call<EventResponse> getEvents();
+    Call<EventResponse> getEvents(@Query("pageSize") Integer pageSize,@Query("offset") Integer offset,@Query("where") String id_disc);
 
 }

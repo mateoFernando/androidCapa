@@ -38,7 +38,7 @@ import gmd.plantilla.androidapp.view.adapter.AdapterDetalleEvento;
 
 public class ListaEventosFragment extends Fragment {
 
-    private static String tipoC;
+    private String tipoC;
 
     @Bind(R.id.lista_categoria)
     RecyclerView recyclerView;
@@ -127,13 +127,17 @@ public class ListaEventosFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_lista_detalle_discos, container, false);
+        View view = inflater.inflate(R.layout.fragment_lista_detalle_eventos, container, false);
         ButterKnife.bind(this, view);
         allItems = new ArrayList<>();
         tipoC = getArguments().getString("tipo");
-        bandejaService.LoadEventsLista(contexr,0,null,0);
+        if(tipoC!="") {
+            bandejaService.LoadEventsLista(contexr, Integer.parseInt(tipoC), null, 0);
 
-
+        }else {
+            //tipoC = "2";
+            bandejaService.LoadEventsLista(contexr, null, null, 0);
+        }
 
 
         linearLayoutManager= new GridLayoutManager(contexr,1);
@@ -181,7 +185,7 @@ public class ListaEventosFragment extends Fragment {
             @Override
             protected void loadMoreItems() {
                 isLoading = true;
-                currentPage += 1;
+                currentPage += 2;
 
 
                 new Handler().postDelayed(new Runnable() {
@@ -195,7 +199,13 @@ public class ListaEventosFragment extends Fragment {
                             rcAdapter.removeLoadingFooter();
                             isLoading = false;
                         }*/
-                        bandejaService.LoadEventsLista(contexr, 0, (idcategoria==0)?null:idcategoria, currentPage);
+                        if(tipoC!="") {
+                            bandejaService.LoadEventsLista(contexr, Integer.parseInt(tipoC), (idcategoria == 0) ? null : idcategoria, currentPage);
+
+                        }else {
+                            bandejaService.LoadEventsLista(contexr, null, (idcategoria==0)?null:idcategoria, currentPage);
+
+                        }
 
                     }
                 }, 1000);
@@ -243,7 +253,7 @@ public class ListaEventosFragment extends Fragment {
 
         rcAdapter.clear();
         rcAdapter.notifyDataSetChanged();
-        bandejaService.LoadEventsLista(contexr,0,null,0);
+        bandejaService.LoadEventsLista(contexr,null,null,0);
 
     }
 

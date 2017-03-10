@@ -66,6 +66,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:text="Nikita"
+                    android:visibility="gone"
                     android:textColor="#fff"
                     android:textSize="24sp"
                     android:textStyle="bold" />
@@ -75,6 +76,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
+                    android:visibility="gone"
                     android:text="Boulebard de Asia"
                     android:textColor="#fff"
                     android:textSize="20sp" />
@@ -86,6 +88,6 @@
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_detalle_disco" />
+    <include layout="@layout/content_detalle_evento" />
 
 </android.support.design.widget.CoordinatorLayout>

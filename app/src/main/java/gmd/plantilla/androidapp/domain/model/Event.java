@@ -2,6 +2,8 @@ package gmd.plantilla.androidapp.domain.model;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Date;
+
 import io.realm.RealmObject;
 
 /**
@@ -11,6 +13,7 @@ import io.realm.RealmObject;
 public class Event extends RealmObject {
     private String image;
 
+    @SerializedName("_date")
     private String date;
 
     private String description;
@@ -50,7 +53,6 @@ public class Event extends RealmObject {
     public void setDate(String date) {
         this.date = date;
     }
-
 
     public String getCreated() {
         return created;

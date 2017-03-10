@@ -23,8 +23,11 @@ public class EventsImpl implements EventsService {
 
     @Override
     public void LoadEventsLista(Context context, Integer idUsuario, Integer idEje, Integer numPagina) {
+        String id_disc=null;
+        if(idUsuario!=null)
+            id_disc="id_disc="+idUsuario;
 
-        Call<EventResponse> call = AndroidApplication.getInstance().getService().getEvents();
+        Call<EventResponse> call = AndroidApplication.getInstance().getService().getEvents(2,numPagina,id_disc);
 
         call.enqueue(new Callback<EventResponse>() {
             @Override

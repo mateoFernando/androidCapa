@@ -182,7 +182,7 @@ public class ListaDiscoFragment extends Fragment {
             @Override
             protected void loadMoreItems() {
                 isLoading = true;
-                currentPage += 1;
+                currentPage += 4;
 
 
                 new Handler().postDelayed(new Runnable() {
