@@ -66,18 +66,6 @@
                         android:textSize="10sp"
                         android:maxLines="1"/>
                 </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.01"
-                    android:layout_gravity="center_vertical"
-                    android:text="- ABIERTO "
-                    android:id="@+id/txtEstado"
-                    android:layout_marginRight="25dp"
-                    android:textColor="@color/cardview_light_background"
-                    android:textSize="20sp"
-                    android:maxLines="1"/>
             </LinearLayout>
 
             <TextView
@@ -197,17 +185,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
+                android:gravity="center_horizontal"
                 android:textSize="16sp"
-                android:textColor="@color/orange_titulos"
-                android:text="Proximos eventos"/>
+                android:textColor="@color/colorAccent"
+                android:text="Descripción"/>
         </LinearLayout>
-    <fragment
-        android:id="@+id/map"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="match_parent"
-        android:layout_height="130dp"
-        tools:context="com.gmdinnovacion.beneficiosgmd.disfruta.view.activity.MapaDetalle" />
-
 
     </LinearLayout>
 

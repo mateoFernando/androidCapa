@@ -12,7 +12,6 @@ import android.support.annotation.RequiresApi;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -33,7 +32,7 @@ import gmd.plantilla.androidapp.domain.model.Disc;
 import gmd.plantilla.androidapp.service.dao.DiscDAO;
 import gmd.plantilla.androidapp.service.dao.impl.DiscDAOImpl;
 
-public class DetalleDiscoActivity extends BaseActivity {
+public class DetalleEventoActivity extends BaseActivity {
 
     @Bind(R.id.close)
     ImageButton close;
@@ -71,8 +70,6 @@ public class DetalleDiscoActivity extends BaseActivity {
     @Bind(R.id.toolbar_subtitle)
     TextView toolbar_subtitle;
 
-    @Bind(R.id.txtEstado)
-    TextView txtEstado;
     String codigoId;
     Disc disc;
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -87,7 +84,7 @@ public class DetalleDiscoActivity extends BaseActivity {
             getWindow().setStatusBarColor(getResources().getColor(R.color.blue_toolbar));
         }
 
-        idProveedorSelect = getIntent().getExtras().getInt("idDisc");
+        idProveedorSelect = getIntent().getExtras().getInt("idEvent");
         Toast.makeText(getApplicationContext(),""+idProveedorSelect, Toast.LENGTH_LONG).show();
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -151,8 +148,6 @@ public class DetalleDiscoActivity extends BaseActivity {
         setTitle(disc.getName());
             txtDireccion.setText(disc.getPlace());
 
-        txtEstado.setText((disc.getState())?"- ABIERTO ":"- CERRADO ");
-        txtEstado.setTextColor((disc.getState())? Color.GREEN:Color.RED);
             //appCompatRatingBar.setRating(listResultado.get(0).getAppCompatRatingBarDcto());
             //txtRatingText.setText(String.valueOf(listResultado.get(0).getRatingText()));
             //txtTelProveedor.setText(listResultado.get(0).getTelefonos());

@@ -78,7 +78,12 @@
             android:theme="@style/NoActionBar"
             android:screenOrientation="portrait"
             >
+        </activity>
 
+        <activity android:name=".view.activity.DetalleEventoActivity"
+            android:theme="@style/NoActionBar"
+            android:screenOrientation="portrait"
+            >
         </activity>
         <activity
             android:name=".view.activity.SplashActivity"

@@ -25,6 +25,7 @@ import butterknife.Bind;
 
 import gmd.plantilla.androidapp.R;
 import gmd.plantilla.androidapp.view.fragment.ListaDiscoFragment;
+import gmd.plantilla.androidapp.view.fragment.ListaEventosFragment;
 import gmd.plantilla.androidapp.view.fragment.MapsFragment;
 import gmd.plantilla.androidapp.view.fragment.ProfileFragment;
 
@@ -60,7 +61,7 @@ public class PrincipalActivity extends AppCompatActivity {
         /*PRINCIPAL TAB*/
 
         fragments.add(ListaDiscoFragment.newInstance("1"));
-        fragments.add(ListaDiscoFragment.newInstance("2"));
+        fragments.add(ListaEventosFragment.newInstance("2"));
         fragments.add(MapsFragment.newInstance("1"));
         fragments.add(ProfileFragment.newInstance("1"));
 

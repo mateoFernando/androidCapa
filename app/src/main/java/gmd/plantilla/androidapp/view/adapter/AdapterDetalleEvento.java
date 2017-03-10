@@ -22,6 +22,7 @@ import gmd.plantilla.androidapp.R;
 import gmd.plantilla.androidapp.domain.model.Event;
 import gmd.plantilla.androidapp.service.dao.EventDAO;
 import gmd.plantilla.androidapp.service.dao.impl.EventDAOImpl;
+import gmd.plantilla.androidapp.view.activity.DetalleEventoActivity;
 
 //public class AdapterDetalleFavoritoDescuento extends RecyclerView.Adapter<AdapterDetalleFavoritoDescuento.listaDetalleDcto> {
 
@@ -220,14 +221,14 @@ public class AdapterDetalleEvento extends RecyclerView.Adapter<RecyclerView.View
             //Toast.makeText(v.getContext(), "Clicked Country Position = " + getPosition(), Toast.LENGTH_SHORT).show();
 //            CategoriasFragment fragment = new CategoriasFragment();
 //            fragment.show(getSupportFragmentManager(),"");
-            /*int a= Integer.parseInt(v.getTag().toString());
+            int a= Integer.parseInt(v.getTag().toString());
             int idDisc = event.get(a).getId();
             discDao.insert(event.get(a));
             Intent moreIntent=new Intent(context,DetalleEventoActivity.class);
             Bundle args = new Bundle();
-            args.putInt("idDisc",idDisc);
+            args.putInt("idEvent",idDisc);
             moreIntent.putExtras(args);
-            v.getContext().startActivity(moreIntent);*/
+            v.getContext().startActivity(moreIntent);
 
         }
 
